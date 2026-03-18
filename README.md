@@ -1,60 +1,134 @@
 
-⭐ NumSpeaks - Number to Words Converter ⭐
+# NumSpeaks - Number to Words Converter
 
-📚 Description: It is used to convert Kurdish, Arabic, and English numerals into words. It's a valuable tool for developers, and anyone working with numbers in these scripts. Stay tuned for future updates with support for additional languages.
+A .NET library to convert numbers into words in **Kurdish**, **Arabic**, and **English** with full **currency support** for 155+ world currencies.
 
-🚀 **Features:**
-- Easy conversion of Kurdish, Arabic, and English numbers into words.
+## Features
+
+- Convert numbers to words in Kurdish, Arabic, and English.
 - Supports decimal numbers (e.g., 123.33).
-- Quick and precise results for all numerical inputs.
-- Enhance documents, financial statements, and more with written numbers.
+- **155+ currencies** with type-safe `Currency` enum — no string typos.
+- Each currency can be referenced by **ISO code** or **descriptive name**.
+- Standard financial format with currency name and sub-unit.
+- Full currency names in all 3 languages (e.g., "US dollar", "دۆلاری ئەمریکی", "دولار أمريكي").
 
+## Installation
 
-**Example Usage in Code:**
-
-```csharp
-// Convert a number to Kurdish words
-var numberInKurdishText = 991_887_766_551.ToKurdishWords();
-// RESULT: نۆ سەد و نۆوەت و یەک ملیار و هەشت سەد و هەشتا و حەوت ملیۆن و حەوت سەد و شەست و شەش هەزار و پێنج سەد و پەنجا و یەک
-
-// Convert a number to Arabic words
-var numberInArabicText = 991_887_766_551.ToArabicWords();
-// RESULT: تسعة مائة و واحد و تسعون مليار و ثمانية مائة و سبعة و ثمانون مليون و سبعة مائة و ستة و ستون ألف و خمسة مائة و واحد و خمسون
-
-// Convert a number to English words
-var numberInEnglishText = 123_456_789_012.ToEnglishWords();
-// RESULT: one hundred twenty-three billion four hundred fifty-six million seven hundred eighty-nine thousand twelve
+```bash
+dotnet add package NumSpeaks
 ```
 
-**Decimal Examples:**
+## Usage
+
+### Basic Number to Words
 
 ```csharp
-// Kurdish decimal
-var kurdishDecimal = 123.33m.ToKurdishWords();
-// RESULT: سەد و بیست و سێ و پۆینت سی و سێ
+using NumSpeaks;
 
-// Arabic decimal
-var arabicDecimal = 123.33m.ToArabicWords();
-// RESULT: مئة و ثلاثة و عشرون فاصلة ثلاثة و ثلاثون
+// English
+var english = 123_456_789.ToEnglishWords();
+// one hundred twenty-three million four hundred fifty-six thousand seven hundred eighty-nine
 
-// English decimal
-var englishDecimal = 123.33m.ToEnglishWords();
-// RESULT: one hundred twenty-three point thirty-three
+// Kurdish
+var kurdish = 991_887_766_551.ToKurdishWords();
+// نۆ سەد و نۆوەت و یەک ملیار و هەشت سەد و هەشتا و حەوت ملیۆن و حەوت سەد و شەست و شەش هەزار و پێنج سەد و پەنجا و یەک
+
+// Arabic
+var arabic = 123_456.ToArabicWords();
+// مئة و ثلاثة و عشرون ألف و أربعة مائة و ستة و خمسون
 ```
 
+### Decimal Numbers
 
+```csharp
+// English
+var en = 123.33m.ToEnglishWords();
+// one hundred twenty-three and thirty-three
 
-🔧 Usage:
+// Kurdish
+var ku = 123.33m.ToKurdishWords();
+// سەد و بیست و سێ و پۆینت سی و سێ
 
-📝 Input: Enter the numeric value (integer or decimal, in Kurdish or Arabic or English script).
-📖 Output: Get the corresponding words in the same script.
+// Arabic
+var ar = 123.33m.ToArabicWords();
+// مئة و ثلاثة و عشرون فاصل ثلاثة و ثلاثون
+```
 
+### Currency Support (Type-Safe)
 
-🌐 **Future Updates:**
-Stay tuned for updates that will add support for new languages, making NumSpeaks even more versatile.
+Use either the **ISO code** or the **descriptive name** — both are equivalent:
 
-📣 **Feedback:**
+```csharp
+// By ISO code
+var usd = 234.32m.ToEnglishWords(Currency.USD);
+// two hundred thirty-four US dollar and thirty-two cents
+
+// By descriptive name (same result)
+var usd2 = 234.32m.ToEnglishWords(Currency.UnitedStatesDollar);
+// two hundred thirty-four US dollar and thirty-two cents
+```
+
+### Currency in All Languages
+
+```csharp
+// English with Iraqi Dinar
+var en = 1500.750m.ToEnglishWords(Currency.IQD);
+// one thousand five hundred Iraqi dinar and seven hundred fifty fils
+
+// Kurdish with Iraqi Dinar
+var ku = 1500.750m.ToKurdishWords(Currency.IraqiDinar);
+// هەزار و پێنج سەد دیناری عێراقی و حەوت سەد و پەنجا فلس
+
+// Arabic with Saudi Riyal
+var ar = 99.50m.ToArabicWords(Currency.SaudiRiyal);
+// تسعة و تسعون ريال سعودي و خمسون هللة
+
+// English with Turkish Lira
+var tr = 250.99m.ToEnglishWords(Currency.TurkishLira);
+// two hundred fifty Turkish lira and ninety-nine kurus
+
+// Kurdish with Euro
+var eu = 50.25m.ToKurdishWords(Currency.Euro);
+// پەنجا یۆرۆ و بیست و پێنج سەنت
+
+// Whole number with currency
+var whole = 1000.ToEnglishWords(Currency.BritishPound);
+// one thousand British pound
+```
+
+### Supported Currencies
+
+All 155 ISO 4217 currencies are supported. Each can be referenced by code or name:
+
+| ISO Code | Descriptive Name | English | Kurdish | Arabic |
+|----------|-----------------|---------|---------|--------|
+| `USD` | `UnitedStatesDollar` | US dollar | دۆلاری ئەمریکی | دولار أمريكي |
+| `EUR` | `Euro` | euro | یۆرۆ | يورو |
+| `GBP` | `BritishPound` | British pound | پاوەندی بەریتانی | جنيه إسترليني |
+| `IQD` | `IraqiDinar` | Iraqi dinar | دیناری عێراقی | دينار عراقي |
+| `TRY` | `TurkishLira` | Turkish lira | لیرەی تورکی | ليرة تركية |
+| `SAR` | `SaudiRiyal` | Saudi riyal | ریاڵی سعوودی | ريال سعودي |
+| `AED` | `UnitedArabEmiratesDirham` | UAE dirham | دیرهەمی ئیماراتی | درهم إماراتي |
+| `KWD` | `KuwaitiDinar` | Kuwaiti dinar | دیناری کوەیتی | دينار كويتي |
+| `JPY` | `JapaneseYen` | Japanese yen | یەنی ژاپۆنی | ين ياباني |
+| `CNY` | `ChineseYuan` | Chinese yuan | یوانی چینی | يوان صيني |
+| ... | ... | ... | ... | ... |
+
+And 145+ more currencies with full support.
+
+## API Reference
+
+```csharp
+// Extension methods on any numeric type
+public static string ToEnglishWords(this object val, Currency? currency = null);
+public static string ToKurdishWords(this object val, Currency? currency = null);
+public static string ToArabicWords(this object val, Currency? currency = null);
+```
+
+## Feedback
+
 If you encounter issues or have suggestions, please [open an issue](https://github.com/karwanessmat/NumberToKurdishWords/issues) on our [GitHub repository](https://github.com/karwanessmat/NumberToKurdishWords).
 
-📄 **License:**
+## License
+
 This project is licensed under the [MIT License](LICENSE).
