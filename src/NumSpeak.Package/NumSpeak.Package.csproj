@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -23,6 +23,12 @@ Convert Kurdish, Arabic, and English numbers to words effortlessly.</PackageRele
     <Version>3</Version>
     <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="NewFolder\**" />
+    <EmbeddedResource Remove="NewFolder\**" />
+    <None Remove="NewFolder\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="logo.ico" />

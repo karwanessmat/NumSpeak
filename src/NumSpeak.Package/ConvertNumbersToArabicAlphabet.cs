@@ -2,7 +2,7 @@ namespace NumSpeaks;
 
 public static class ConvertNumbersToArabicAlphabet
 {
-    public static string ToArabicWords(this object val)
+    public static string ToArabicWords(this object val, Currency? currency = null)
     {
         var stringVal = val.ToString()?.Trim() ?? "";
 
@@ -16,7 +16,14 @@ public static class ConvertNumbersToArabicAlphabet
             {
                 var integerWords = integerPart.ToArabicWords();
                 var decimalWords = decimalPart.ToArabicWords();
-                return $"{integerWords} فاصلة {decimalWords}";
+
+                if (currency.HasValue)
+                {
+                    var info = CurrencyInfo.Get(currency.Value);
+                    return $"{integerWords} {info.ArabicName} و {decimalWords} {info.ArabicSubUnit}";
+                }
+
+                return $"{integerWords} فاصل {decimalWords}";
             }
 
             return "وهو يدعم الأرقام فقط.";
@@ -68,7 +75,15 @@ public static class ConvertNumbersToArabicAlphabet
             words += ConvertTensAndUnits(number);
         }
 
-        return words.Trim();
+        var result = words.Trim();
+
+        if (currency.HasValue)
+        {
+            var info = CurrencyInfo.Get(currency.Value);
+            result = $"{result} {info.ArabicName}";
+        }
+
+        return result;
     }
 
     private static string ConvertBillions(long number)

@@ -1,11 +1,12 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33103.184
+# Visual Studio Version 18
+VisualStudioVersion = 18.3.11505.172 d18.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumSpeak.Package", "src\NumSpeak.Package\NumSpeak.Package.csproj", "{85E3D968-5A85-4F77-981F-AD7C05CCECB5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumSpeak.Api", "src\NumSpeak.Api\NumSpeak.Api.csproj", "{00E7EB48-4420-433C-9BCE-1EE89450CAE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumSpeak.Console", "src\NumSpeak.Console\NumSpeak.Console.csproj", "{1CF4B960-9EC5-4B0B-930A-83254F03BEAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +22,10 @@ Global
 		{00E7EB48-4420-433C-9BCE-1EE89450CAE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00E7EB48-4420-433C-9BCE-1EE89450CAE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00E7EB48-4420-433C-9BCE-1EE89450CAE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CF4B960-9EC5-4B0B-930A-83254F03BEAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF4B960-9EC5-4B0B-930A-83254F03BEAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF4B960-9EC5-4B0B-930A-83254F03BEAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF4B960-9EC5-4B0B-930A-83254F03BEAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

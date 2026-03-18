@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(dotnet build:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(find c:UsersSPARDADesktopNumSpeaksrcNumSpeak.Api -type f -name *Controller*)",
+      "Bash(find \"c:\\\\Users\\\\SPARDA\\\\Desktop\\\\NumSpeak\" -maxdepth 3 -type d -name \"*Web\\\\|*Ui\\\\|*Views\\\\|*Presentation\")",
+      "Bash(grep -r \"italic\\\\|Amount\\\\|result\" c:UsersSPARDADesktopNumSpeak --include=*.cs --include=*.cshtml --include=*.razor --include=*.html)",
+      "Bash(python -c \":*)"
     ]
   }
 }

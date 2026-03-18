@@ -9,7 +9,7 @@ public static class ConvertNumbersToEnglishAlphabet
     private static readonly string[] Tens = { "zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
     private static readonly string[] Thousands = { "", "thousand", "million", "billion", "trillion", "quadrillion", "quintillion" };
 
-    public static string ToEnglishWords(this object val)
+    public static string ToEnglishWords(this object val, Currency? currency = null)
     {
         var stringVal = val.ToString()?.Trim() ?? "";
 
@@ -23,7 +23,14 @@ public static class ConvertNumbersToEnglishAlphabet
             {
                 var integerWords = integerPart.ToEnglishWords();
                 var decimalWords = decimalPart.ToEnglishWords();
-                return $"{integerWords} point {decimalWords}";
+
+                if (currency.HasValue)
+                {
+                    var info = CurrencyInfo.Get(currency.Value);
+                    return $"{integerWords} {info.EnglishName} and {decimalWords} {info.EnglishSubUnit}";
+                }
+
+                return $"{integerWords} and {decimalWords}";
             }
 
             return "Just support number";
@@ -58,7 +65,15 @@ public static class ConvertNumbersToEnglishAlphabet
             thousandCounter++;
         }
 
-        return words.Trim();
+        var result = words.Trim();
+
+        if (currency.HasValue)
+        {
+            var info = CurrencyInfo.Get(currency.Value);
+            result = $"{result} {info.EnglishName}";
+        }
+
+        return result;
     }
 
     private static string ConvertLessThanOneThousand(long number)

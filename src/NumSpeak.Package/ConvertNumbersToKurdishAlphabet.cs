@@ -5,7 +5,7 @@ namespace NumSpeaks
 
     public static class ConvertNumbersToKurdishAlphabet
     {
-        public static string ToKurdishWords(this object val)
+        public static string ToKurdishWords(this object val, Currency? currency = null)
         {
             var stringVal = val.ToString()?.Trim() ?? "";
 
@@ -19,6 +19,13 @@ namespace NumSpeaks
                 {
                     var integerWords = integerPart.ToKurdishWords();
                     var decimalWords = decimalPart.ToKurdishWords();
+
+                    if (currency.HasValue)
+                    {
+                        var info = CurrencyInfo.Get(currency.Value);
+                        return $"{integerWords} {info.KurdishName} و {decimalWords} {info.KurdishSubUnit}";
+                    }
+
                     return $"{integerWords} و پۆینت {decimalWords}";
                 }
 
@@ -44,7 +51,15 @@ namespace NumSpeaks
 
             var words = new StringBuilder();
             words.Append(ConvertNumberToKurdish(number));
-            return words.ToString().Trim();
+            var result = words.ToString().Trim();
+
+            if (currency.HasValue)
+            {
+                var info = CurrencyInfo.Get(currency.Value);
+                result = $"{result} {info.KurdishName}";
+            }
+
+            return result;
         }
 
         private static string ConvertNumberToKurdish(long number)
