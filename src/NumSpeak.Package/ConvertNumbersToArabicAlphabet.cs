@@ -42,6 +42,13 @@ public static class ConvertNumbersToArabicAlphabet
 
         string words = "";
 
+        if (number / 1000000000000 > 0)
+        {
+            words += ConvertTrillions(number / 1000000000000);
+            number %= 1000000000000;
+            if (number > 0) words += " و ";
+        }
+
         if (number / 1000000000 > 0)
         {
             words += ConvertBillions(number / 1000000000);
@@ -84,6 +91,14 @@ public static class ConvertNumbersToArabicAlphabet
         }
 
         return result;
+    }
+
+    private static string ConvertTrillions(long number)
+    {
+        if (number == 1) return "تريليون";
+        if (number == 2) return "تريليونان";
+        if (number > 2 && number < 11) return number.ToArabicWords() + " تريليونات";
+        return number.ToArabicWords() + " تريليون";
     }
 
     private static string ConvertBillions(long number)

@@ -117,7 +117,8 @@ namespace NumSpeaks
         private static string ConvertTrillions(long number)
         {
             if (number == 1)
-                return "تریلیۆنێك";  // Special case for one trillion
+                return "یه‌ك تریلیۆن";  // Special case for one trillion
+                //return "تریلیۆنێك";  // Special case for one trillion
 
             return number.ToKurdishWords() + " تریلیۆن";
         }
@@ -125,7 +126,8 @@ namespace NumSpeaks
         private static string ConvertBillions(long number)
         {
             if (number == 1)
-                return "ملیارێك";  // Special case for one billion
+                return "یه‌ك ملیار";  // Special case for one billion
+                //return "ملیارێك";  // Special case for one billion
 
             return number.ToKurdishWords() + " ملیار";
         }
@@ -133,14 +135,16 @@ namespace NumSpeaks
         private static string ConvertMillions(long number)
         {
             if (number == 1)
-                return "ملیۆنێك";  // Special case for one million
+                return "یه‌ك ملیۆن";  // Special case for one million
+                //return "ملیۆنێك";  // Special case for one million
 
             return number.ToKurdishWords() + " ملیۆن";
         }
         private static string ConvertThousands(long number)
         {
             if (number == 1)
-                return "هەزار";  // Just "هەزار" for 1000
+                return "یه‌ك هه‌زار";  // Just "هەزار" for 1000
+                //return "هەزار";  // Just "هەزار" for 1000
 
             return number.ToKurdishWords() + " هەزار";
         }
