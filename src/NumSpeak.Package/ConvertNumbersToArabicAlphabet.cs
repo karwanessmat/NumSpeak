@@ -15,15 +15,18 @@ public static class ConvertNumbersToArabicAlphabet
                 && long.TryParse(parts[1], out var decimalPart))
             {
                 var integerWords = integerPart.ToArabicWords();
-                var decimalWords = decimalPart.ToArabicWords();
 
                 if (currency.HasValue)
                 {
                     var info = CurrencyInfo.Get(currency.Value);
-                    return $"{integerWords} {info.ArabicName} و {decimalWords} {info.ArabicSubUnit}";
+                    return decimalPart == 0
+                        ? $"{integerWords} {info.ArabicName}"
+                        : $"{integerWords} {info.ArabicName} و {decimalPart.ToArabicWords()} {info.ArabicSubUnit}";
                 }
 
-                return $"{integerWords} فاصل {decimalWords}";
+                return decimalPart == 0
+                    ? integerWords
+                    : $"{integerWords} فاصل {decimalPart.ToArabicWords()}";
             }
 
             return "وهو يدعم الأرقام فقط.";

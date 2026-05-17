@@ -18,15 +18,18 @@ namespace NumSpeaks
                     && long.TryParse(parts[1], out var decimalPart))
                 {
                     var integerWords = integerPart.ToKurdishWords();
-                    var decimalWords = decimalPart.ToKurdishWords();
 
                     if (currency.HasValue)
                     {
                         var info = CurrencyInfo.Get(currency.Value);
-                        return $"{integerWords} {info.KurdishName} و {decimalWords} {info.KurdishSubUnit}";
+                        return decimalPart == 0
+                            ? $"{integerWords} {info.KurdishName}"
+                            : $"{integerWords} {info.KurdishName} و {decimalPart.ToKurdishWords()} {info.KurdishSubUnit}";
                     }
 
-                    return $"{integerWords} و پۆینت {decimalWords}";
+                    return decimalPart == 0
+                        ? integerWords
+                        : $"{integerWords} و پۆینت {decimalPart.ToKurdishWords()}";
                 }
 
                 return "تەنها پشتگیری ژمارە دەکات.";

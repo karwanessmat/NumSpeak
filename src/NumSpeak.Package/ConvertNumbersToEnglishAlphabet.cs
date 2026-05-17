@@ -22,15 +22,18 @@ public static class ConvertNumbersToEnglishAlphabet
                 && long.TryParse(parts[1], out var decimalPart))
             {
                 var integerWords = integerPart.ToEnglishWords();
-                var decimalWords = decimalPart.ToEnglishWords();
 
                 if (currency.HasValue)
                 {
                     var info = CurrencyInfo.Get(currency.Value);
-                    return $"{integerWords} {info.EnglishName} and {decimalWords} {info.EnglishSubUnit}";
+                    return decimalPart == 0
+                        ? $"{integerWords} {info.EnglishName}"
+                        : $"{integerWords} {info.EnglishName} and {decimalPart.ToEnglishWords()} {info.EnglishSubUnit}";
                 }
 
-                return $"{integerWords} and {decimalWords}";
+                return decimalPart == 0
+                    ? integerWords
+                    : $"{integerWords} and {decimalPart.ToEnglishWords()}";
             }
 
             return "Just support number";
