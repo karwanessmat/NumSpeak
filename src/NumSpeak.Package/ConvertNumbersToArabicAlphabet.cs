@@ -2,7 +2,7 @@ namespace NumSpeaks;
 
 public static class ConvertNumbersToArabicAlphabet
 {
-    public static string ToArabicWords(this object val, Currency? currency = null)
+    public static string ToArabicWords(this object val, CurrencyCode? currencyCode = null)
     {
         var stringVal = val.ToString()?.Trim() ?? "";
 
@@ -16,9 +16,9 @@ public static class ConvertNumbersToArabicAlphabet
             {
                 var integerWords = integerPart.ToArabicWords();
 
-                if (currency.HasValue)
+                if (currencyCode.HasValue)
                 {
-                    var info = CurrencyInfo.Get(currency.Value);
+                    var info = CurrencyInfo.Get(currencyCode.Value);
                     return decimalPart == 0
                         ? $"{integerWords} {info.ArabicName}"
                         : $"{integerWords} {info.ArabicName} و {decimalPart.ToArabicWords()} {info.ArabicSubUnit}";
@@ -87,9 +87,9 @@ public static class ConvertNumbersToArabicAlphabet
 
         var result = words.Trim();
 
-        if (currency.HasValue)
+        if (currencyCode.HasValue)
         {
-            var info = CurrencyInfo.Get(currency.Value);
+            var info = CurrencyInfo.Get(currencyCode.Value);
             result = $"{result} {info.ArabicName}";
         }
 

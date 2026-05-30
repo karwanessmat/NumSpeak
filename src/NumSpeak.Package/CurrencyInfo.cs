@@ -1,7 +1,7 @@
 namespace NumSpeaks;
 
 /// <summary>
-/// Currency metadata including names in English, Kurdish, and Arabic, plus sub-unit info.
+/// CurrencyCode metadata including names in English, Kurdish, and Arabic, plus sub-unit info.
 /// </summary>
 public class CurrencyInfo
 {
@@ -13,64 +13,64 @@ public class CurrencyInfo
     public string ArabicSubUnit { get; init; } = "";
     public int SubUnitFactor { get; init; } = 100;
 
-    private static readonly Dictionary<Currency, CurrencyInfo> Data = new()
+    private static readonly Dictionary<CurrencyCode, CurrencyInfo> Data = new()
     {
         // ── A ──
-        [Currency.AED] = new CurrencyInfo
+        [CurrencyCode.AED] = new CurrencyInfo
         {
             EnglishName = "UAE dirham", EnglishSubUnit = "fils",
             KurdishName = "دیرهەمی ئیماراتی", KurdishSubUnit = "فلس",
             ArabicName = "درهم إماراتي", ArabicSubUnit = "فلس"
         },
-        [Currency.AFN] = new CurrencyInfo
+        [CurrencyCode.AFN] = new CurrencyInfo
         {
             EnglishName = "Afghan afghani", EnglishSubUnit = "pul",
             KurdishName = "ئەفغانیی ئەفغانستانی", KurdishSubUnit = "پوول",
             ArabicName = "أفغاني أفغانستاني", ArabicSubUnit = "بول"
         },
-        [Currency.ALL] = new CurrencyInfo
+        [CurrencyCode.ALL] = new CurrencyInfo
         {
             EnglishName = "Albanian lek", EnglishSubUnit = "qindarka",
             KurdishName = "لێکی ئەلبانی", KurdishSubUnit = "قیندارکا",
             ArabicName = "ليك ألباني", ArabicSubUnit = "قندركة"
         },
-        [Currency.AMD] = new CurrencyInfo
+        [CurrencyCode.AMD] = new CurrencyInfo
         {
             EnglishName = "Armenian dram", EnglishSubUnit = "luma",
             KurdishName = "درامی ئەرمەنی", KurdishSubUnit = "لوما",
             ArabicName = "درام أرميني", ArabicSubUnit = "لوما"
         },
-        [Currency.ANG] = new CurrencyInfo
+        [CurrencyCode.ANG] = new CurrencyInfo
         {
             EnglishName = "Netherlands Antillean guilder", EnglishSubUnit = "cents",
             KurdishName = "گیلدەری ئەنتیلی هۆلەندی", KurdishSubUnit = "سەنت",
             ArabicName = "غيلدر أنتيلي هولندي", ArabicSubUnit = "سنت"
         },
-        [Currency.AOA] = new CurrencyInfo
+        [CurrencyCode.AOA] = new CurrencyInfo
         {
             EnglishName = "Angolan kwanza", EnglishSubUnit = "centimos",
             KurdishName = "کوانزای ئەنگۆلی", KurdishSubUnit = "سەنتیمۆ",
             ArabicName = "كوانزا أنغولية", ArabicSubUnit = "سنتيمو"
         },
-        [Currency.ARS] = new CurrencyInfo
+        [CurrencyCode.ARS] = new CurrencyInfo
         {
             EnglishName = "Argentine peso", EnglishSubUnit = "centavos",
             KurdishName = "پێسۆی ئەرژەنتینی", KurdishSubUnit = "سەنتاڤۆ",
             ArabicName = "بيزو أرجنتيني", ArabicSubUnit = "سنتافو"
         },
-        [Currency.AUD] = new CurrencyInfo
+        [CurrencyCode.AUD] = new CurrencyInfo
         {
             EnglishName = "Australian dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری ئوسترالی", KurdishSubUnit = "سەنت",
             ArabicName = "دولار أسترالي", ArabicSubUnit = "سنت"
         },
-        [Currency.AWG] = new CurrencyInfo
+        [CurrencyCode.AWG] = new CurrencyInfo
         {
             EnglishName = "Aruban florin", EnglishSubUnit = "cents",
             KurdishName = "فلۆرینی ئاروبایی", KurdishSubUnit = "سەنت",
             ArabicName = "فلورن أروبي", ArabicSubUnit = "سنت"
         },
-        [Currency.AZN] = new CurrencyInfo
+        [CurrencyCode.AZN] = new CurrencyInfo
         {
             EnglishName = "Azerbaijani manat", EnglishSubUnit = "qapik",
             KurdishName = "ماناتی ئازەربایجانی", KurdishSubUnit = "قاپیک",
@@ -78,92 +78,92 @@ public class CurrencyInfo
         },
 
         // ── B ──
-        [Currency.BAM] = new CurrencyInfo
+        [CurrencyCode.BAM] = new CurrencyInfo
         {
             EnglishName = "Bosnian convertible mark", EnglishSubUnit = "fening",
             KurdishName = "مارکی بۆسنی", KurdishSubUnit = "فێنینگ",
             ArabicName = "مارك بوسني", ArabicSubUnit = "فينينغ"
         },
-        [Currency.BBD] = new CurrencyInfo
+        [CurrencyCode.BBD] = new CurrencyInfo
         {
             EnglishName = "Barbadian dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری باربادۆسی", KurdishSubUnit = "سەنت",
             ArabicName = "دولار بربادوسي", ArabicSubUnit = "سنت"
         },
-        [Currency.BDT] = new CurrencyInfo
+        [CurrencyCode.BDT] = new CurrencyInfo
         {
             EnglishName = "Bangladeshi taka", EnglishSubUnit = "poisha",
             KurdishName = "تاکای بەنگلادیشی", KurdishSubUnit = "پۆیشا",
             ArabicName = "تاكا بنغلاديشية", ArabicSubUnit = "بويشة"
         },
-        [Currency.BGN] = new CurrencyInfo
+        [CurrencyCode.BGN] = new CurrencyInfo
         {
             EnglishName = "Bulgarian lev", EnglishSubUnit = "stotinki",
             KurdishName = "لێڤی بولگاری", KurdishSubUnit = "ستۆتینکی",
             ArabicName = "ليف بلغاري", ArabicSubUnit = "ستوتينكي"
         },
-        [Currency.BHD] = new CurrencyInfo
+        [CurrencyCode.BHD] = new CurrencyInfo
         {
             EnglishName = "Bahraini dinar", EnglishSubUnit = "fils",
             KurdishName = "دیناری بەحرەینی", KurdishSubUnit = "فلس",
             ArabicName = "دينار بحريني", ArabicSubUnit = "فلس",
             SubUnitFactor = 1000
         },
-        [Currency.BIF] = new CurrencyInfo
+        [CurrencyCode.BIF] = new CurrencyInfo
         {
             EnglishName = "Burundian franc", EnglishSubUnit = "centimes",
             KurdishName = "فرانکی بوروندی", KurdishSubUnit = "سەنتیم",
             ArabicName = "فرنك بوروندي", ArabicSubUnit = "سنتيم"
         },
-        [Currency.BMD] = new CurrencyInfo
+        [CurrencyCode.BMD] = new CurrencyInfo
         {
             EnglishName = "Bermudian dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری بێرمودایی", KurdishSubUnit = "سەنت",
             ArabicName = "دولار برمودي", ArabicSubUnit = "سنت"
         },
-        [Currency.BND] = new CurrencyInfo
+        [CurrencyCode.BND] = new CurrencyInfo
         {
             EnglishName = "Brunei dollar", EnglishSubUnit = "sen",
             KurdishName = "دۆلاری بروونایی", KurdishSubUnit = "سێن",
             ArabicName = "دولار بروناي", ArabicSubUnit = "سن"
         },
-        [Currency.BOB] = new CurrencyInfo
+        [CurrencyCode.BOB] = new CurrencyInfo
         {
             EnglishName = "Bolivian boliviano", EnglishSubUnit = "centavos",
             KurdishName = "بۆلیڤیانۆی بۆلیڤی", KurdishSubUnit = "سەنتاڤۆ",
             ArabicName = "بوليفيانو بوليفي", ArabicSubUnit = "سنتافو"
         },
-        [Currency.BRL] = new CurrencyInfo
+        [CurrencyCode.BRL] = new CurrencyInfo
         {
             EnglishName = "Brazilian real", EnglishSubUnit = "centavos",
             KurdishName = "ڕیاڵی بەرازیلی", KurdishSubUnit = "سەنتاڤۆ",
             ArabicName = "ريال برازيلي", ArabicSubUnit = "سنتافو"
         },
-        [Currency.BSD] = new CurrencyInfo
+        [CurrencyCode.BSD] = new CurrencyInfo
         {
             EnglishName = "Bahamian dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری باهامایی", KurdishSubUnit = "سەنت",
             ArabicName = "دولار باهامي", ArabicSubUnit = "سنت"
         },
-        [Currency.BTN] = new CurrencyInfo
+        [CurrencyCode.BTN] = new CurrencyInfo
         {
             EnglishName = "Bhutanese ngultrum", EnglishSubUnit = "chetrum",
             KurdishName = "نگولترومی بوتانی", KurdishSubUnit = "چێتروم",
             ArabicName = "نغولتروم بوتاني", ArabicSubUnit = "شيتروم"
         },
-        [Currency.BWP] = new CurrencyInfo
+        [CurrencyCode.BWP] = new CurrencyInfo
         {
             EnglishName = "Botswana pula", EnglishSubUnit = "thebe",
             KurdishName = "پوولای بۆتسوانایی", KurdishSubUnit = "تێبێ",
             ArabicName = "بولا بوتسوانية", ArabicSubUnit = "ثيبي"
         },
-        [Currency.BYN] = new CurrencyInfo
+        [CurrencyCode.BYN] = new CurrencyInfo
         {
             EnglishName = "Belarusian ruble", EnglishSubUnit = "kopecks",
             KurdishName = "ڕووبڵی بیلاڕووسی", KurdishSubUnit = "کۆپێک",
             ArabicName = "روبل بيلاروسي", ArabicSubUnit = "كوبيك"
         },
-        [Currency.BZD] = new CurrencyInfo
+        [CurrencyCode.BZD] = new CurrencyInfo
         {
             EnglishName = "Belize dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری بەلیزی", KurdishSubUnit = "سەنت",
@@ -171,61 +171,61 @@ public class CurrencyInfo
         },
 
         // ── C ──
-        [Currency.CAD] = new CurrencyInfo
+        [CurrencyCode.CAD] = new CurrencyInfo
         {
             EnglishName = "Canadian dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری کەنەدی", KurdishSubUnit = "سەنت",
             ArabicName = "دولار كندي", ArabicSubUnit = "سنت"
         },
-        [Currency.CDF] = new CurrencyInfo
+        [CurrencyCode.CDF] = new CurrencyInfo
         {
             EnglishName = "Congolese franc", EnglishSubUnit = "centimes",
             KurdishName = "فرانکی کۆنگۆیی", KurdishSubUnit = "سەنتیم",
             ArabicName = "فرنك كونغولي", ArabicSubUnit = "سنتيم"
         },
-        [Currency.CHF] = new CurrencyInfo
+        [CurrencyCode.CHF] = new CurrencyInfo
         {
             EnglishName = "Swiss franc", EnglishSubUnit = "centimes",
             KurdishName = "فرانکی سویسری", KurdishSubUnit = "سەنتیم",
             ArabicName = "فرنك سويسري", ArabicSubUnit = "سنتيم"
         },
-        [Currency.CLP] = new CurrencyInfo
+        [CurrencyCode.CLP] = new CurrencyInfo
         {
             EnglishName = "Chilean peso", EnglishSubUnit = "centavos",
             KurdishName = "پێسۆی چیلی", KurdishSubUnit = "سەنتاڤۆ",
             ArabicName = "بيزو تشيلي", ArabicSubUnit = "سنتافو"
         },
-        [Currency.CNY] = new CurrencyInfo
+        [CurrencyCode.CNY] = new CurrencyInfo
         {
             EnglishName = "Chinese yuan", EnglishSubUnit = "fen",
             KurdishName = "یوانی چینی", KurdishSubUnit = "فێن",
             ArabicName = "يوان صيني", ArabicSubUnit = "فن"
         },
-        [Currency.COP] = new CurrencyInfo
+        [CurrencyCode.COP] = new CurrencyInfo
         {
             EnglishName = "Colombian peso", EnglishSubUnit = "centavos",
             KurdishName = "پێسۆی کۆلۆمبی", KurdishSubUnit = "سەنتاڤۆ",
             ArabicName = "بيزو كولومبي", ArabicSubUnit = "سنتافو"
         },
-        [Currency.CRC] = new CurrencyInfo
+        [CurrencyCode.CRC] = new CurrencyInfo
         {
             EnglishName = "Costa Rican colon", EnglishSubUnit = "centimos",
             KurdishName = "کۆلۆنی کۆستاریکایی", KurdishSubUnit = "سەنتیمۆ",
             ArabicName = "كولون كوستاريكي", ArabicSubUnit = "سنتيمو"
         },
-        [Currency.CUC] = new CurrencyInfo
+        [CurrencyCode.CUC] = new CurrencyInfo
         {
             EnglishName = "Cuban convertible peso", EnglishSubUnit = "centavos",
             KurdishName = "پێسۆی کووبایی", KurdishSubUnit = "سەنتاڤۆ",
             ArabicName = "بيزو كوبي", ArabicSubUnit = "سنتافو"
         },
-        [Currency.CVE] = new CurrencyInfo
+        [CurrencyCode.CVE] = new CurrencyInfo
         {
             EnglishName = "Cape Verdean escudo", EnglishSubUnit = "centavos",
             KurdishName = "ئێسکوودۆی کەیپ ڤێردی", KurdishSubUnit = "سەنتاڤۆ",
             ArabicName = "إسكودو رأس أخضر", ArabicSubUnit = "سنتافو"
         },
-        [Currency.CZK] = new CurrencyInfo
+        [CurrencyCode.CZK] = new CurrencyInfo
         {
             EnglishName = "Czech koruna", EnglishSubUnit = "haler",
             KurdishName = "کرۆنای چێکی", KurdishSubUnit = "هالێر",
@@ -233,25 +233,25 @@ public class CurrencyInfo
         },
 
         // ── D ──
-        [Currency.DJF] = new CurrencyInfo
+        [CurrencyCode.DJF] = new CurrencyInfo
         {
             EnglishName = "Djiboutian franc", EnglishSubUnit = "centimes",
             KurdishName = "فرانکی جیبوتی", KurdishSubUnit = "سەنتیم",
             ArabicName = "فرنك جيبوتي", ArabicSubUnit = "سنتيم"
         },
-        [Currency.DKK] = new CurrencyInfo
+        [CurrencyCode.DKK] = new CurrencyInfo
         {
             EnglishName = "Danish krone", EnglishSubUnit = "ore",
             KurdishName = "کرۆنای دانیمارکی", KurdishSubUnit = "ئۆرە",
             ArabicName = "كرونة دنماركية", ArabicSubUnit = "أوره"
         },
-        [Currency.DOP] = new CurrencyInfo
+        [CurrencyCode.DOP] = new CurrencyInfo
         {
             EnglishName = "Dominican peso", EnglishSubUnit = "centavos",
             KurdishName = "پێسۆی دۆمینیکانی", KurdishSubUnit = "سەنتاڤۆ",
             ArabicName = "بيزو دومينيكاني", ArabicSubUnit = "سنتافو"
         },
-        [Currency.DZD] = new CurrencyInfo
+        [CurrencyCode.DZD] = new CurrencyInfo
         {
             EnglishName = "Algerian dinar", EnglishSubUnit = "centimes",
             KurdishName = "دیناری جەزایری", KurdishSubUnit = "سەنتیم",
@@ -259,25 +259,25 @@ public class CurrencyInfo
         },
 
         // ── E ──
-        [Currency.EGP] = new CurrencyInfo
+        [CurrencyCode.EGP] = new CurrencyInfo
         {
             EnglishName = "Egyptian pound", EnglishSubUnit = "piastres",
             KurdishName = "پاوەندی میسری", KurdishSubUnit = "قرش",
             ArabicName = "جنيه مصري", ArabicSubUnit = "قرش"
         },
-        [Currency.ERN] = new CurrencyInfo
+        [CurrencyCode.ERN] = new CurrencyInfo
         {
             EnglishName = "Eritrean nakfa", EnglishSubUnit = "cents",
             KurdishName = "ناکفای ئەریتری", KurdishSubUnit = "سەنت",
             ArabicName = "نكفة إريترية", ArabicSubUnit = "سنت"
         },
-        [Currency.ETB] = new CurrencyInfo
+        [CurrencyCode.ETB] = new CurrencyInfo
         {
             EnglishName = "Ethiopian birr", EnglishSubUnit = "santim",
             KurdishName = "بیری ئیتیۆپی", KurdishSubUnit = "سانتیم",
             ArabicName = "بر إثيوبي", ArabicSubUnit = "سنتيم"
         },
-        [Currency.EUR] = new CurrencyInfo
+        [CurrencyCode.EUR] = new CurrencyInfo
         {
             EnglishName = "euro", EnglishSubUnit = "cents",
             KurdishName = "یۆرۆ", KurdishSubUnit = "سەنت",
@@ -285,13 +285,13 @@ public class CurrencyInfo
         },
 
         // ── F ──
-        [Currency.FJD] = new CurrencyInfo
+        [CurrencyCode.FJD] = new CurrencyInfo
         {
             EnglishName = "Fijian dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری فیجی", KurdishSubUnit = "سەنت",
             ArabicName = "دولار فيجي", ArabicSubUnit = "سنت"
         },
-        [Currency.FKP] = new CurrencyInfo
+        [CurrencyCode.FKP] = new CurrencyInfo
         {
             EnglishName = "Falkland Islands pound", EnglishSubUnit = "pence",
             KurdishName = "پاوەندی دوورگەکانی فالکلاند", KurdishSubUnit = "پێنس",
@@ -299,49 +299,49 @@ public class CurrencyInfo
         },
 
         // ── G ──
-        [Currency.GBP] = new CurrencyInfo
+        [CurrencyCode.GBP] = new CurrencyInfo
         {
             EnglishName = "British pound", EnglishSubUnit = "pence",
             KurdishName = "پاوەندی بەریتانی", KurdishSubUnit = "پێنس",
             ArabicName = "جنيه إسترليني", ArabicSubUnit = "بنس"
         },
-        [Currency.GEL] = new CurrencyInfo
+        [CurrencyCode.GEL] = new CurrencyInfo
         {
             EnglishName = "Georgian lari", EnglishSubUnit = "tetri",
             KurdishName = "لاریی گورجستانی", KurdishSubUnit = "تێتری",
             ArabicName = "لاري جورجي", ArabicSubUnit = "تتري"
         },
-        [Currency.GHS] = new CurrencyInfo
+        [CurrencyCode.GHS] = new CurrencyInfo
         {
             EnglishName = "Ghanaian cedi", EnglishSubUnit = "pesewas",
             KurdishName = "سیدیی غەنایی", KurdishSubUnit = "پێسێوا",
             ArabicName = "سيدي غاني", ArabicSubUnit = "بيسيوا"
         },
-        [Currency.GIP] = new CurrencyInfo
+        [CurrencyCode.GIP] = new CurrencyInfo
         {
             EnglishName = "Gibraltar pound", EnglishSubUnit = "pence",
             KurdishName = "پاوەندی جیبرالتار", KurdishSubUnit = "پێنس",
             ArabicName = "جنيه جبل طارق", ArabicSubUnit = "بنس"
         },
-        [Currency.GMD] = new CurrencyInfo
+        [CurrencyCode.GMD] = new CurrencyInfo
         {
             EnglishName = "Gambian dalasi", EnglishSubUnit = "bututs",
             KurdishName = "دالاسیی گامبیایی", KurdishSubUnit = "بوتوت",
             ArabicName = "دلاسي غامبي", ArabicSubUnit = "بوتوت"
         },
-        [Currency.GNF] = new CurrencyInfo
+        [CurrencyCode.GNF] = new CurrencyInfo
         {
             EnglishName = "Guinean franc", EnglishSubUnit = "centimes",
             KurdishName = "فرانکی گینێیی", KurdishSubUnit = "سەنتیم",
             ArabicName = "فرنك غيني", ArabicSubUnit = "سنتيم"
         },
-        [Currency.GTQ] = new CurrencyInfo
+        [CurrencyCode.GTQ] = new CurrencyInfo
         {
             EnglishName = "Guatemalan quetzal", EnglishSubUnit = "centavos",
             KurdishName = "کویتزاڵی گواتیمالایی", KurdishSubUnit = "سەنتاڤۆ",
             ArabicName = "كتزال غواتيمالي", ArabicSubUnit = "سنتافو"
         },
-        [Currency.GYD] = new CurrencyInfo
+        [CurrencyCode.GYD] = new CurrencyInfo
         {
             EnglishName = "Guyanese dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری گایانایی", KurdishSubUnit = "سەنت",
@@ -349,25 +349,25 @@ public class CurrencyInfo
         },
 
         // ── H ──
-        [Currency.HKD] = new CurrencyInfo
+        [CurrencyCode.HKD] = new CurrencyInfo
         {
             EnglishName = "Hong Kong dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری هۆنگ کۆنگ", KurdishSubUnit = "سەنت",
             ArabicName = "دولار هونغ كونغ", ArabicSubUnit = "سنت"
         },
-        [Currency.HNL] = new CurrencyInfo
+        [CurrencyCode.HNL] = new CurrencyInfo
         {
             EnglishName = "Honduran lempira", EnglishSubUnit = "centavos",
             KurdishName = "لێمپیرای هۆندوراسی", KurdishSubUnit = "سەنتاڤۆ",
             ArabicName = "لمبيرة هندوراسية", ArabicSubUnit = "سنتافو"
         },
-        [Currency.HTG] = new CurrencyInfo
+        [CurrencyCode.HTG] = new CurrencyInfo
         {
             EnglishName = "Haitian gourde", EnglishSubUnit = "centimes",
             KurdishName = "گوردی هایتی", KurdishSubUnit = "سەنتیم",
             ArabicName = "غورد هايتي", ArabicSubUnit = "سنتيم"
         },
-        [Currency.HUF] = new CurrencyInfo
+        [CurrencyCode.HUF] = new CurrencyInfo
         {
             EnglishName = "Hungarian forint", EnglishSubUnit = "filler",
             KurdishName = "فۆرینتی مەجاری", KurdishSubUnit = "فیلێر",
@@ -375,38 +375,38 @@ public class CurrencyInfo
         },
 
         // ── I ──
-        [Currency.IDR] = new CurrencyInfo
+        [CurrencyCode.IDR] = new CurrencyInfo
         {
             EnglishName = "Indonesian rupiah", EnglishSubUnit = "sen",
             KurdishName = "ڕووپیای ئیندۆنیزی", KurdishSubUnit = "سێن",
             ArabicName = "روبية إندونيسية", ArabicSubUnit = "سن"
         },
-        [Currency.ILS] = new CurrencyInfo
+        [CurrencyCode.ILS] = new CurrencyInfo
         {
             EnglishName = "Israeli new shekel", EnglishSubUnit = "agorot",
             KurdishName = "شێکڵی ئیسرائیلی", KurdishSubUnit = "ئاگۆرا",
             ArabicName = "شيكل إسرائيلي", ArabicSubUnit = "أغورة"
         },
-        [Currency.INR] = new CurrencyInfo
+        [CurrencyCode.INR] = new CurrencyInfo
         {
             EnglishName = "Indian rupee", EnglishSubUnit = "paise",
             KurdishName = "ڕووپیی هیندی", KurdishSubUnit = "پایسە",
             ArabicName = "روبية هندية", ArabicSubUnit = "بيسة"
         },
-        [Currency.IQD] = new CurrencyInfo
+        [CurrencyCode.IQD] = new CurrencyInfo
         {
             EnglishName = "Iraqi dinar", EnglishSubUnit = "fils",
             KurdishName = "دیناری عێراقی", KurdishSubUnit = "فلس",
             ArabicName = "دينار عراقي", ArabicSubUnit = "فلس",
             SubUnitFactor = 1000
         },
-        [Currency.IRR] = new CurrencyInfo
+        [CurrencyCode.IRR] = new CurrencyInfo
         {
             EnglishName = "Iranian rial", EnglishSubUnit = "dinars",
             KurdishName = "ریاڵی ئێرانی", KurdishSubUnit = "دینار",
             ArabicName = "ريال إيراني", ArabicSubUnit = "دينار"
         },
-        [Currency.ISK] = new CurrencyInfo
+        [CurrencyCode.ISK] = new CurrencyInfo
         {
             EnglishName = "Icelandic krona", EnglishSubUnit = "aurar",
             KurdishName = "کرۆنای ئایسلەندی", KurdishSubUnit = "ئۆرار",
@@ -414,19 +414,19 @@ public class CurrencyInfo
         },
 
         // ── J ──
-        [Currency.JMD] = new CurrencyInfo
+        [CurrencyCode.JMD] = new CurrencyInfo
         {
             EnglishName = "Jamaican dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری جامایکایی", KurdishSubUnit = "سەنت",
             ArabicName = "دولار جامايكي", ArabicSubUnit = "سنت"
         },
-        [Currency.JOD] = new CurrencyInfo
+        [CurrencyCode.JOD] = new CurrencyInfo
         {
             EnglishName = "Jordanian dinar", EnglishSubUnit = "piastres",
             KurdishName = "دیناری ئوردنی", KurdishSubUnit = "قرش",
             ArabicName = "دينار أردني", ArabicSubUnit = "قرش"
         },
-        [Currency.JPY] = new CurrencyInfo
+        [CurrencyCode.JPY] = new CurrencyInfo
         {
             EnglishName = "Japanese yen", EnglishSubUnit = "sen",
             KurdishName = "یەنی ژاپۆنی", KurdishSubUnit = "سێن",
@@ -435,57 +435,57 @@ public class CurrencyInfo
         },
 
         // ── K ──
-        [Currency.KES] = new CurrencyInfo
+        [CurrencyCode.KES] = new CurrencyInfo
         {
             EnglishName = "Kenyan shilling", EnglishSubUnit = "cents",
             KurdishName = "شیلنگی کینیایی", KurdishSubUnit = "سەنت",
             ArabicName = "شلن كيني", ArabicSubUnit = "سنت"
         },
-        [Currency.KGS] = new CurrencyInfo
+        [CurrencyCode.KGS] = new CurrencyInfo
         {
             EnglishName = "Kyrgyzstani som", EnglishSubUnit = "tyiyn",
             KurdishName = "سۆمی قرغیزستانی", KurdishSubUnit = "تییین",
             ArabicName = "سوم قرغيزستاني", ArabicSubUnit = "تيين"
         },
-        [Currency.KHR] = new CurrencyInfo
+        [CurrencyCode.KHR] = new CurrencyInfo
         {
             EnglishName = "Cambodian riel", EnglishSubUnit = "sen",
             KurdishName = "ڕیێڵی کەمبۆدی", KurdishSubUnit = "سێن",
             ArabicName = "ريال كمبودي", ArabicSubUnit = "سن"
         },
-        [Currency.KMF] = new CurrencyInfo
+        [CurrencyCode.KMF] = new CurrencyInfo
         {
             EnglishName = "Comorian franc", EnglishSubUnit = "centimes",
             KurdishName = "فرانکی کۆمۆری", KurdishSubUnit = "سەنتیم",
             ArabicName = "فرنك قمري", ArabicSubUnit = "سنتيم"
         },
-        [Currency.KPW] = new CurrencyInfo
+        [CurrencyCode.KPW] = new CurrencyInfo
         {
             EnglishName = "North Korean won", EnglishSubUnit = "chon",
             KurdishName = "وۆنی کۆریای باکوور", KurdishSubUnit = "چۆن",
             ArabicName = "وون كوري شمالي", ArabicSubUnit = "تشون"
         },
-        [Currency.KRW] = new CurrencyInfo
+        [CurrencyCode.KRW] = new CurrencyInfo
         {
             EnglishName = "South Korean won", EnglishSubUnit = "jeon",
             KurdishName = "وۆنی کۆریای باشوور", KurdishSubUnit = "جیۆن",
             ArabicName = "وون كوري جنوبي", ArabicSubUnit = "جون",
             SubUnitFactor = 1
         },
-        [Currency.KWD] = new CurrencyInfo
+        [CurrencyCode.KWD] = new CurrencyInfo
         {
             EnglishName = "Kuwaiti dinar", EnglishSubUnit = "fils",
             KurdishName = "دیناری کوەیتی", KurdishSubUnit = "فلس",
             ArabicName = "دينار كويتي", ArabicSubUnit = "فلس",
             SubUnitFactor = 1000
         },
-        [Currency.KYD] = new CurrencyInfo
+        [CurrencyCode.KYD] = new CurrencyInfo
         {
             EnglishName = "Cayman Islands dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری دوورگەکانی کەیمان", KurdishSubUnit = "سەنت",
             ArabicName = "دولار جزر كايمان", ArabicSubUnit = "سنت"
         },
-        [Currency.KZT] = new CurrencyInfo
+        [CurrencyCode.KZT] = new CurrencyInfo
         {
             EnglishName = "Kazakhstani tenge", EnglishSubUnit = "tiyn",
             KurdishName = "تێنگەی کازاخستانی", KurdishSubUnit = "تییین",
@@ -493,37 +493,37 @@ public class CurrencyInfo
         },
 
         // ── L ──
-        [Currency.LAK] = new CurrencyInfo
+        [CurrencyCode.LAK] = new CurrencyInfo
         {
             EnglishName = "Lao kip", EnglishSubUnit = "att",
             KurdishName = "کیپی لاوسی", KurdishSubUnit = "ئات",
             ArabicName = "كيب لاوسي", ArabicSubUnit = "آت"
         },
-        [Currency.LBP] = new CurrencyInfo
+        [CurrencyCode.LBP] = new CurrencyInfo
         {
             EnglishName = "Lebanese pound", EnglishSubUnit = "piastres",
             KurdishName = "لیرەی لوبنانی", KurdishSubUnit = "قرش",
             ArabicName = "ليرة لبنانية", ArabicSubUnit = "قرش"
         },
-        [Currency.LKR] = new CurrencyInfo
+        [CurrencyCode.LKR] = new CurrencyInfo
         {
             EnglishName = "Sri Lankan rupee", EnglishSubUnit = "cents",
             KurdishName = "ڕووپیی سریلانکایی", KurdishSubUnit = "سەنت",
             ArabicName = "روبية سريلانكية", ArabicSubUnit = "سنت"
         },
-        [Currency.LRD] = new CurrencyInfo
+        [CurrencyCode.LRD] = new CurrencyInfo
         {
             EnglishName = "Liberian dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری لیبەریایی", KurdishSubUnit = "سەنت",
             ArabicName = "دولار ليبيري", ArabicSubUnit = "سنت"
         },
-        [Currency.LSL] = new CurrencyInfo
+        [CurrencyCode.LSL] = new CurrencyInfo
         {
             EnglishName = "Lesotho loti", EnglishSubUnit = "lisente",
             KurdishName = "لۆتیی لیسۆتۆیی", KurdishSubUnit = "لیسێنتە",
             ArabicName = "لوتي ليسوتو", ArabicSubUnit = "ليسنتي"
         },
-        [Currency.LYD] = new CurrencyInfo
+        [CurrencyCode.LYD] = new CurrencyInfo
         {
             EnglishName = "Libyan dinar", EnglishSubUnit = "dirhams",
             KurdishName = "دیناری لیبی", KurdishSubUnit = "دیرهەم",
@@ -532,85 +532,85 @@ public class CurrencyInfo
         },
 
         // ── M ──
-        [Currency.MAD] = new CurrencyInfo
+        [CurrencyCode.MAD] = new CurrencyInfo
         {
             EnglishName = "Moroccan dirham", EnglishSubUnit = "centimes",
             KurdishName = "دیرهەمی مەغریبی", KurdishSubUnit = "سەنتیم",
             ArabicName = "درهم مغربي", ArabicSubUnit = "سنتيم"
         },
-        [Currency.MDL] = new CurrencyInfo
+        [CurrencyCode.MDL] = new CurrencyInfo
         {
             EnglishName = "Moldovan leu", EnglishSubUnit = "bani",
             KurdishName = "لێوی مۆلدۆڤی", KurdishSubUnit = "بانی",
             ArabicName = "ليو مولدوفي", ArabicSubUnit = "باني"
         },
-        [Currency.MGA] = new CurrencyInfo
+        [CurrencyCode.MGA] = new CurrencyInfo
         {
             EnglishName = "Malagasy ariary", EnglishSubUnit = "iraimbilanja",
             KurdishName = "ئاریاریی مادغەشقەری", KurdishSubUnit = "ئیرایمبیلانجا",
             ArabicName = "أرياري مدغشقري", ArabicSubUnit = "إيرايمبيلنجة"
         },
-        [Currency.MKD] = new CurrencyInfo
+        [CurrencyCode.MKD] = new CurrencyInfo
         {
             EnglishName = "Macedonian denar", EnglishSubUnit = "deni",
             KurdishName = "دیناری مەقدۆنی", KurdishSubUnit = "دێنی",
             ArabicName = "دينار مقدوني", ArabicSubUnit = "ديني"
         },
-        [Currency.MMK] = new CurrencyInfo
+        [CurrencyCode.MMK] = new CurrencyInfo
         {
             EnglishName = "Myanmar kyat", EnglishSubUnit = "pya",
             KurdishName = "کیاتی میانماری", KurdishSubUnit = "پیا",
             ArabicName = "كيات ميانماري", ArabicSubUnit = "بيا"
         },
-        [Currency.MNT] = new CurrencyInfo
+        [CurrencyCode.MNT] = new CurrencyInfo
         {
             EnglishName = "Mongolian tugrik", EnglishSubUnit = "mongo",
             KurdishName = "تۆگریکی مەنگۆلی", KurdishSubUnit = "مۆنگۆ",
             ArabicName = "توغريك منغولي", ArabicSubUnit = "مونغو"
         },
-        [Currency.MOP] = new CurrencyInfo
+        [CurrencyCode.MOP] = new CurrencyInfo
         {
             EnglishName = "Macanese pataca", EnglishSubUnit = "avos",
             KurdishName = "پاتاکای ماکاوی", KurdishSubUnit = "ئاڤۆ",
             ArabicName = "باتاكا ماكاوية", ArabicSubUnit = "آفو"
         },
-        [Currency.MRU] = new CurrencyInfo
+        [CurrencyCode.MRU] = new CurrencyInfo
         {
             EnglishName = "Mauritanian ouguiya", EnglishSubUnit = "khoums",
             KurdishName = "ئوگیای مۆریتانی", KurdishSubUnit = "خومس",
             ArabicName = "أوقية موريتانية", ArabicSubUnit = "خمس"
         },
-        [Currency.MUR] = new CurrencyInfo
+        [CurrencyCode.MUR] = new CurrencyInfo
         {
             EnglishName = "Mauritian rupee", EnglishSubUnit = "cents",
             KurdishName = "ڕووپیی مۆریسی", KurdishSubUnit = "سەنت",
             ArabicName = "روبية موريشيوسية", ArabicSubUnit = "سنت"
         },
-        [Currency.MVR] = new CurrencyInfo
+        [CurrencyCode.MVR] = new CurrencyInfo
         {
             EnglishName = "Maldivian rufiyaa", EnglishSubUnit = "laari",
             KurdishName = "ڕوفیای مالدیڤی", KurdishSubUnit = "لاری",
             ArabicName = "روفية مالديفية", ArabicSubUnit = "لاري"
         },
-        [Currency.MWK] = new CurrencyInfo
+        [CurrencyCode.MWK] = new CurrencyInfo
         {
             EnglishName = "Malawian kwacha", EnglishSubUnit = "tambala",
             KurdishName = "کواچای مالاویی", KurdishSubUnit = "تامبالا",
             ArabicName = "كواشا مالاوية", ArabicSubUnit = "تمبالا"
         },
-        [Currency.MXN] = new CurrencyInfo
+        [CurrencyCode.MXN] = new CurrencyInfo
         {
             EnglishName = "Mexican peso", EnglishSubUnit = "centavos",
             KurdishName = "پێسۆی مەکسیکی", KurdishSubUnit = "سەنتاڤۆ",
             ArabicName = "بيزو مكسيكي", ArabicSubUnit = "سنتافو"
         },
-        [Currency.MYR] = new CurrencyInfo
+        [CurrencyCode.MYR] = new CurrencyInfo
         {
             EnglishName = "Malaysian ringgit", EnglishSubUnit = "sen",
             KurdishName = "رینگیتی مالیزی", KurdishSubUnit = "سێن",
             ArabicName = "رينغيت ماليزي", ArabicSubUnit = "سن"
         },
-        [Currency.MZN] = new CurrencyInfo
+        [CurrencyCode.MZN] = new CurrencyInfo
         {
             EnglishName = "Mozambican metical", EnglishSubUnit = "centavos",
             KurdishName = "مێتیکاڵی مۆزامبیکی", KurdishSubUnit = "سەنتاڤۆ",
@@ -618,37 +618,37 @@ public class CurrencyInfo
         },
 
         // ── N ──
-        [Currency.NAD] = new CurrencyInfo
+        [CurrencyCode.NAD] = new CurrencyInfo
         {
             EnglishName = "Namibian dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری نامیبیایی", KurdishSubUnit = "سەنت",
             ArabicName = "دولار ناميبي", ArabicSubUnit = "سنت"
         },
-        [Currency.NGN] = new CurrencyInfo
+        [CurrencyCode.NGN] = new CurrencyInfo
         {
             EnglishName = "Nigerian naira", EnglishSubUnit = "kobo",
             KurdishName = "نایرای نایجیریایی", KurdishSubUnit = "کۆبۆ",
             ArabicName = "نيرة نيجيرية", ArabicSubUnit = "كوبو"
         },
-        [Currency.NIO] = new CurrencyInfo
+        [CurrencyCode.NIO] = new CurrencyInfo
         {
             EnglishName = "Nicaraguan cordoba", EnglishSubUnit = "centavos",
             KurdishName = "کۆردۆبای نیکاراگوایی", KurdishSubUnit = "سەنتاڤۆ",
             ArabicName = "قرطبة نيكاراغوية", ArabicSubUnit = "سنتافو"
         },
-        [Currency.NOK] = new CurrencyInfo
+        [CurrencyCode.NOK] = new CurrencyInfo
         {
             EnglishName = "Norwegian krone", EnglishSubUnit = "ore",
             KurdishName = "کرۆنای نەرویجی", KurdishSubUnit = "ئۆرە",
             ArabicName = "كرونة نرويجية", ArabicSubUnit = "أوره"
         },
-        [Currency.NPR] = new CurrencyInfo
+        [CurrencyCode.NPR] = new CurrencyInfo
         {
             EnglishName = "Nepalese rupee", EnglishSubUnit = "paisa",
             KurdishName = "ڕووپیی نیپاڵی", KurdishSubUnit = "پایسا",
             ArabicName = "روبية نيبالية", ArabicSubUnit = "بيسة"
         },
-        [Currency.NZD] = new CurrencyInfo
+        [CurrencyCode.NZD] = new CurrencyInfo
         {
             EnglishName = "New Zealand dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری نیوزیلاندی", KurdishSubUnit = "سەنت",
@@ -656,7 +656,7 @@ public class CurrencyInfo
         },
 
         // ── O ──
-        [Currency.OMR] = new CurrencyInfo
+        [CurrencyCode.OMR] = new CurrencyInfo
         {
             EnglishName = "Omani rial", EnglishSubUnit = "baisa",
             KurdishName = "ریاڵی عومانی", KurdishSubUnit = "بایسا",
@@ -665,43 +665,43 @@ public class CurrencyInfo
         },
 
         // ── P ──
-        [Currency.PAB] = new CurrencyInfo
+        [CurrencyCode.PAB] = new CurrencyInfo
         {
             EnglishName = "Panamanian balboa", EnglishSubUnit = "centesimos",
             KurdishName = "باڵبۆای پاناماییی", KurdishSubUnit = "سەنتێسیمۆ",
             ArabicName = "بلبوا بنمي", ArabicSubUnit = "سنتيسيمو"
         },
-        [Currency.PEN] = new CurrencyInfo
+        [CurrencyCode.PEN] = new CurrencyInfo
         {
             EnglishName = "Peruvian sol", EnglishSubUnit = "centimos",
             KurdishName = "سۆلی پێرووی", KurdishSubUnit = "سەنتیمۆ",
             ArabicName = "سول بيروفي", ArabicSubUnit = "سنتيمو"
         },
-        [Currency.PGK] = new CurrencyInfo
+        [CurrencyCode.PGK] = new CurrencyInfo
         {
             EnglishName = "Papua New Guinean kina", EnglishSubUnit = "toea",
             KurdishName = "کینای پاپوا گینێی نوێ", KurdishSubUnit = "تۆیا",
             ArabicName = "كينا بابوا غينيا الجديدة", ArabicSubUnit = "تويا"
         },
-        [Currency.PHP] = new CurrencyInfo
+        [CurrencyCode.PHP] = new CurrencyInfo
         {
             EnglishName = "Philippine peso", EnglishSubUnit = "centavos",
             KurdishName = "پێسۆی فیلیپینی", KurdishSubUnit = "سەنتاڤۆ",
             ArabicName = "بيزو فلبيني", ArabicSubUnit = "سنتافو"
         },
-        [Currency.PKR] = new CurrencyInfo
+        [CurrencyCode.PKR] = new CurrencyInfo
         {
             EnglishName = "Pakistani rupee", EnglishSubUnit = "paisa",
             KurdishName = "ڕووپیی پاکستانی", KurdishSubUnit = "پایسا",
             ArabicName = "روبية باكستانية", ArabicSubUnit = "بيسة"
         },
-        [Currency.PLN] = new CurrencyInfo
+        [CurrencyCode.PLN] = new CurrencyInfo
         {
             EnglishName = "Polish zloty", EnglishSubUnit = "groszy",
             KurdishName = "زلۆتیی پۆلەندی", KurdishSubUnit = "گرۆشی",
             ArabicName = "زلوتي بولندي", ArabicSubUnit = "غروشي"
         },
-        [Currency.PYG] = new CurrencyInfo
+        [CurrencyCode.PYG] = new CurrencyInfo
         {
             EnglishName = "Paraguayan guarani", EnglishSubUnit = "centimos",
             KurdishName = "گوارانیی پاراگوایی", KurdishSubUnit = "سەنتیمۆ",
@@ -709,7 +709,7 @@ public class CurrencyInfo
         },
 
         // ── Q ──
-        [Currency.QAR] = new CurrencyInfo
+        [CurrencyCode.QAR] = new CurrencyInfo
         {
             EnglishName = "Qatari riyal", EnglishSubUnit = "dirhams",
             KurdishName = "ریاڵی قەتەری", KurdishSubUnit = "دیرهەم",
@@ -717,25 +717,25 @@ public class CurrencyInfo
         },
 
         // ── R ──
-        [Currency.RON] = new CurrencyInfo
+        [CurrencyCode.RON] = new CurrencyInfo
         {
             EnglishName = "Romanian leu", EnglishSubUnit = "bani",
             KurdishName = "لێوی ڕۆمانی", KurdishSubUnit = "بانی",
             ArabicName = "ليو روماني", ArabicSubUnit = "باني"
         },
-        [Currency.RSD] = new CurrencyInfo
+        [CurrencyCode.RSD] = new CurrencyInfo
         {
             EnglishName = "Serbian dinar", EnglishSubUnit = "para",
             KurdishName = "دیناری سربی", KurdishSubUnit = "پارا",
             ArabicName = "دينار صربي", ArabicSubUnit = "بارة"
         },
-        [Currency.RUB] = new CurrencyInfo
+        [CurrencyCode.RUB] = new CurrencyInfo
         {
             EnglishName = "Russian ruble", EnglishSubUnit = "kopecks",
             KurdishName = "ڕووبڵی ڕووسی", KurdishSubUnit = "کۆپێک",
             ArabicName = "روبل روسي", ArabicSubUnit = "كوبيك"
         },
-        [Currency.RWF] = new CurrencyInfo
+        [CurrencyCode.RWF] = new CurrencyInfo
         {
             EnglishName = "Rwandan franc", EnglishSubUnit = "centimes",
             KurdishName = "فرانکی ڕواندایی", KurdishSubUnit = "سەنتیم",
@@ -743,85 +743,85 @@ public class CurrencyInfo
         },
 
         // ── S ──
-        [Currency.SAR] = new CurrencyInfo
+        [CurrencyCode.SAR] = new CurrencyInfo
         {
             EnglishName = "Saudi riyal", EnglishSubUnit = "halalas",
             KurdishName = "ریاڵی سعوودی", KurdishSubUnit = "هەلەلە",
             ArabicName = "ريال سعودي", ArabicSubUnit = "هللة"
         },
-        [Currency.SBD] = new CurrencyInfo
+        [CurrencyCode.SBD] = new CurrencyInfo
         {
             EnglishName = "Solomon Islands dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری دوورگەکانی سلێمان", KurdishSubUnit = "سەنت",
             ArabicName = "دولار جزر سليمان", ArabicSubUnit = "سنت"
         },
-        [Currency.SCR] = new CurrencyInfo
+        [CurrencyCode.SCR] = new CurrencyInfo
         {
             EnglishName = "Seychellois rupee", EnglishSubUnit = "cents",
             KurdishName = "ڕووپیی سیشێلی", KurdishSubUnit = "سەنت",
             ArabicName = "روبية سيشلية", ArabicSubUnit = "سنت"
         },
-        [Currency.SDG] = new CurrencyInfo
+        [CurrencyCode.SDG] = new CurrencyInfo
         {
             EnglishName = "Sudanese pound", EnglishSubUnit = "piastres",
             KurdishName = "پاوەندی سوودانی", KurdishSubUnit = "قرش",
             ArabicName = "جنيه سوداني", ArabicSubUnit = "قرش"
         },
-        [Currency.SEK] = new CurrencyInfo
+        [CurrencyCode.SEK] = new CurrencyInfo
         {
             EnglishName = "Swedish krona", EnglishSubUnit = "ore",
             KurdishName = "کرۆنای سویدی", KurdishSubUnit = "ئۆرە",
             ArabicName = "كرونة سويدية", ArabicSubUnit = "أوره"
         },
-        [Currency.SGD] = new CurrencyInfo
+        [CurrencyCode.SGD] = new CurrencyInfo
         {
             EnglishName = "Singapore dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری سینگاپووری", KurdishSubUnit = "سەنت",
             ArabicName = "دولار سنغافوري", ArabicSubUnit = "سنت"
         },
-        [Currency.SHP] = new CurrencyInfo
+        [CurrencyCode.SHP] = new CurrencyInfo
         {
             EnglishName = "Saint Helena pound", EnglishSubUnit = "pence",
             KurdishName = "پاوەندی سەینت هێلینا", KurdishSubUnit = "پێنس",
             ArabicName = "جنيه سانت هيلانة", ArabicSubUnit = "بنس"
         },
-        [Currency.SLL] = new CurrencyInfo
+        [CurrencyCode.SLL] = new CurrencyInfo
         {
             EnglishName = "Sierra Leonean leone", EnglishSubUnit = "cents",
             KurdishName = "لیۆنی سیەرالیۆنی", KurdishSubUnit = "سەنت",
             ArabicName = "ليون سيراليوني", ArabicSubUnit = "سنت"
         },
-        [Currency.SOS] = new CurrencyInfo
+        [CurrencyCode.SOS] = new CurrencyInfo
         {
             EnglishName = "Somali shilling", EnglishSubUnit = "cents",
             KurdishName = "شیلنگی سۆمالی", KurdishSubUnit = "سەنت",
             ArabicName = "شلن صومالي", ArabicSubUnit = "سنت"
         },
-        [Currency.SRD] = new CurrencyInfo
+        [CurrencyCode.SRD] = new CurrencyInfo
         {
             EnglishName = "Surinamese dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری سورینامی", KurdishSubUnit = "سەنت",
             ArabicName = "دولار سورينامي", ArabicSubUnit = "سنت"
         },
-        [Currency.SSP] = new CurrencyInfo
+        [CurrencyCode.SSP] = new CurrencyInfo
         {
             EnglishName = "South Sudanese pound", EnglishSubUnit = "piastres",
             KurdishName = "پاوەندی سوودانی باشوور", KurdishSubUnit = "قرش",
             ArabicName = "جنيه جنوب سوداني", ArabicSubUnit = "قرش"
         },
-        [Currency.STN] = new CurrencyInfo
+        [CurrencyCode.STN] = new CurrencyInfo
         {
             EnglishName = "Sao Tome and Principe dobra", EnglishSubUnit = "centimos",
             KurdishName = "دۆبرای ساو تۆمێ", KurdishSubUnit = "سەنتیمۆ",
             ArabicName = "دوبرا ساو تومي", ArabicSubUnit = "سنتيمو"
         },
-        [Currency.SYP] = new CurrencyInfo
+        [CurrencyCode.SYP] = new CurrencyInfo
         {
             EnglishName = "Syrian pound", EnglishSubUnit = "piastres",
             KurdishName = "لیرەی سووری", KurdishSubUnit = "قرش",
             ArabicName = "ليرة سورية", ArabicSubUnit = "قرش"
         },
-        [Currency.SZL] = new CurrencyInfo
+        [CurrencyCode.SZL] = new CurrencyInfo
         {
             EnglishName = "Swazi lilangeni", EnglishSubUnit = "cents",
             KurdishName = "لیلانگێنیی سوازیلاندی", KurdishSubUnit = "سەنت",
@@ -829,56 +829,56 @@ public class CurrencyInfo
         },
 
         // ── T ──
-        [Currency.THB] = new CurrencyInfo
+        [CurrencyCode.THB] = new CurrencyInfo
         {
             EnglishName = "Thai baht", EnglishSubUnit = "satang",
             KurdishName = "باتی تایلەندی", KurdishSubUnit = "ساتانگ",
             ArabicName = "بات تايلندي", ArabicSubUnit = "ساتانغ"
         },
-        [Currency.TJS] = new CurrencyInfo
+        [CurrencyCode.TJS] = new CurrencyInfo
         {
             EnglishName = "Tajikistani somoni", EnglishSubUnit = "diram",
             KurdishName = "سۆمۆنیی تاجیکستانی", KurdishSubUnit = "دیرام",
             ArabicName = "سوموني طاجيكستاني", ArabicSubUnit = "ديرام"
         },
-        [Currency.TMT] = new CurrencyInfo
+        [CurrencyCode.TMT] = new CurrencyInfo
         {
             EnglishName = "Turkmenistan manat", EnglishSubUnit = "tennesi",
             KurdishName = "ماناتی تورکمانستانی", KurdishSubUnit = "تێنێسی",
             ArabicName = "مانات تركمانستاني", ArabicSubUnit = "تنسي"
         },
-        [Currency.TND] = new CurrencyInfo
+        [CurrencyCode.TND] = new CurrencyInfo
         {
             EnglishName = "Tunisian dinar", EnglishSubUnit = "millimes",
             KurdishName = "دیناری تونسی", KurdishSubUnit = "ملیم",
             ArabicName = "دينار تونسي", ArabicSubUnit = "مليم",
             SubUnitFactor = 1000
         },
-        [Currency.TOP] = new CurrencyInfo
+        [CurrencyCode.TOP] = new CurrencyInfo
         {
             EnglishName = "Tongan paanga", EnglishSubUnit = "seniti",
             KurdishName = "پاعانگای تۆنگایی", KurdishSubUnit = "سێنیتی",
             ArabicName = "بانغا تونغي", ArabicSubUnit = "سنيتي"
         },
-        [Currency.TRY] = new CurrencyInfo
+        [CurrencyCode.TRY] = new CurrencyInfo
         {
             EnglishName = "Turkish lira", EnglishSubUnit = "kurus",
             KurdishName = "لیرەی تورکی", KurdishSubUnit = "قروش",
             ArabicName = "ليرة تركية", ArabicSubUnit = "قرش"
         },
-        [Currency.TTD] = new CurrencyInfo
+        [CurrencyCode.TTD] = new CurrencyInfo
         {
             EnglishName = "Trinidad and Tobago dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری ترینیداد و تۆباگۆ", KurdishSubUnit = "سەنت",
             ArabicName = "دولار ترينيداد وتوباغو", ArabicSubUnit = "سنت"
         },
-        [Currency.TWD] = new CurrencyInfo
+        [CurrencyCode.TWD] = new CurrencyInfo
         {
             EnglishName = "New Taiwan dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری تایوانی", KurdishSubUnit = "سەنت",
             ArabicName = "دولار تايواني", ArabicSubUnit = "سنت"
         },
-        [Currency.TZS] = new CurrencyInfo
+        [CurrencyCode.TZS] = new CurrencyInfo
         {
             EnglishName = "Tanzanian shilling", EnglishSubUnit = "cents",
             KurdishName = "شیلنگی تانزانیایی", KurdishSubUnit = "سەنت",
@@ -886,31 +886,31 @@ public class CurrencyInfo
         },
 
         // ── U ──
-        [Currency.UAH] = new CurrencyInfo
+        [CurrencyCode.UAH] = new CurrencyInfo
         {
             EnglishName = "Ukrainian hryvnia", EnglishSubUnit = "kopiykas",
             KurdishName = "هریڤنیای ئۆکرانی", KurdishSubUnit = "کۆپییکا",
             ArabicName = "هريفنيا أوكرانية", ArabicSubUnit = "كوبيكا"
         },
-        [Currency.UGX] = new CurrencyInfo
+        [CurrencyCode.UGX] = new CurrencyInfo
         {
             EnglishName = "Ugandan shilling", EnglishSubUnit = "cents",
             KurdishName = "شیلنگی ئوگاندایی", KurdishSubUnit = "سەنت",
             ArabicName = "شلن أوغندي", ArabicSubUnit = "سنت"
         },
-        [Currency.USD] = new CurrencyInfo
+        [CurrencyCode.USD] = new CurrencyInfo
         {
             EnglishName = "US dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری ئەمریکی", KurdishSubUnit = "سەنت",
             ArabicName = "دولار أمريكي", ArabicSubUnit = "سنت"
         },
-        [Currency.UYU] = new CurrencyInfo
+        [CurrencyCode.UYU] = new CurrencyInfo
         {
             EnglishName = "Uruguayan peso", EnglishSubUnit = "centesimos",
             KurdishName = "پێسۆی ئوروگوایی", KurdishSubUnit = "سەنتێسیمۆ",
             ArabicName = "بيزو أوروغواي", ArabicSubUnit = "سنتيسيمو"
         },
-        [Currency.UZS] = new CurrencyInfo
+        [CurrencyCode.UZS] = new CurrencyInfo
         {
             EnglishName = "Uzbekistani som", EnglishSubUnit = "tiyin",
             KurdishName = "سۆمی ئوزبەکستانی", KurdishSubUnit = "تییین",
@@ -918,20 +918,20 @@ public class CurrencyInfo
         },
 
         // ── V ──
-        [Currency.VES] = new CurrencyInfo
+        [CurrencyCode.VES] = new CurrencyInfo
         {
             EnglishName = "Venezuelan bolivar", EnglishSubUnit = "centimos",
             KurdishName = "بۆلیڤاری ڤەنزوێلایی", KurdishSubUnit = "سەنتیمۆ",
             ArabicName = "بوليفار فنزويلي", ArabicSubUnit = "سنتيمو"
         },
-        [Currency.VND] = new CurrencyInfo
+        [CurrencyCode.VND] = new CurrencyInfo
         {
             EnglishName = "Vietnamese dong", EnglishSubUnit = "hao",
             KurdishName = "دۆنگی ڤیەتنامی", KurdishSubUnit = "هاو",
             ArabicName = "دونغ فيتنامي", ArabicSubUnit = "هاو",
             SubUnitFactor = 1
         },
-        [Currency.VUV] = new CurrencyInfo
+        [CurrencyCode.VUV] = new CurrencyInfo
         {
             EnglishName = "Vanuatu vatu", EnglishSubUnit = "none",
             KurdishName = "ڤاتوی ڤانواتوویی", KurdishSubUnit = "نییە",
@@ -940,7 +940,7 @@ public class CurrencyInfo
         },
 
         // ── W ──
-        [Currency.WST] = new CurrencyInfo
+        [CurrencyCode.WST] = new CurrencyInfo
         {
             EnglishName = "Samoan tala", EnglishSubUnit = "sene",
             KurdishName = "تالای ساموایی", KurdishSubUnit = "سێنە",
@@ -948,25 +948,25 @@ public class CurrencyInfo
         },
 
         // ── X (Regional) ──
-        [Currency.XAF] = new CurrencyInfo
+        [CurrencyCode.XAF] = new CurrencyInfo
         {
             EnglishName = "Central African CFA franc", EnglishSubUnit = "centimes",
             KurdishName = "فرانکی سی ئێف ئەی ناوەندی ئەفریقا", KurdishSubUnit = "سەنتیم",
             ArabicName = "فرنك وسط أفريقي", ArabicSubUnit = "سنتيم"
         },
-        [Currency.XCD] = new CurrencyInfo
+        [CurrencyCode.XCD] = new CurrencyInfo
         {
             EnglishName = "Eastern Caribbean dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری کاریبی ڕۆژهەڵات", KurdishSubUnit = "سەنت",
             ArabicName = "دولار شرق كاريبي", ArabicSubUnit = "سنت"
         },
-        [Currency.XOF] = new CurrencyInfo
+        [CurrencyCode.XOF] = new CurrencyInfo
         {
             EnglishName = "West African CFA franc", EnglishSubUnit = "centimes",
             KurdishName = "فرانکی سی ئێف ئەی ڕۆژئاوای ئەفریقا", KurdishSubUnit = "سەنتیم",
             ArabicName = "فرنك غرب أفريقي", ArabicSubUnit = "سنتيم"
         },
-        [Currency.XPF] = new CurrencyInfo
+        [CurrencyCode.XPF] = new CurrencyInfo
         {
             EnglishName = "CFP franc", EnglishSubUnit = "centimes",
             KurdishName = "فرانکی سی ئێف پی", KurdishSubUnit = "سەنتیم",
@@ -974,7 +974,7 @@ public class CurrencyInfo
         },
 
         // ── Y ──
-        [Currency.YER] = new CurrencyInfo
+        [CurrencyCode.YER] = new CurrencyInfo
         {
             EnglishName = "Yemeni rial", EnglishSubUnit = "fils",
             KurdishName = "ریاڵی یەمەنی", KurdishSubUnit = "فلس",
@@ -982,19 +982,19 @@ public class CurrencyInfo
         },
 
         // ── Z ──
-        [Currency.ZAR] = new CurrencyInfo
+        [CurrencyCode.ZAR] = new CurrencyInfo
         {
             EnglishName = "South African rand", EnglishSubUnit = "cents",
             KurdishName = "ڕاندی ئەفریقای باشوور", KurdishSubUnit = "سەنت",
             ArabicName = "راند جنوب أفريقي", ArabicSubUnit = "سنت"
         },
-        [Currency.ZMW] = new CurrencyInfo
+        [CurrencyCode.ZMW] = new CurrencyInfo
         {
             EnglishName = "Zambian kwacha", EnglishSubUnit = "ngwee",
             KurdishName = "کواچای زامبیایی", KurdishSubUnit = "نگوی",
             ArabicName = "كواشا زامبية", ArabicSubUnit = "نغوي"
         },
-        [Currency.ZWL] = new CurrencyInfo
+        [CurrencyCode.ZWL] = new CurrencyInfo
         {
             EnglishName = "Zimbabwean dollar", EnglishSubUnit = "cents",
             KurdishName = "دۆلاری زیمبابوی", KurdishSubUnit = "سەنت",
@@ -1003,15 +1003,15 @@ public class CurrencyInfo
     };
 
     /// <summary>
-    /// Gets the CurrencyInfo for a given currency code.
+    /// Gets the CurrencyInfo for a given currencyCode code.
     /// Falls back to the enum name if not explicitly mapped.
     /// </summary>
-    public static CurrencyInfo Get(Currency currency)
+    public static CurrencyInfo Get(CurrencyCode currencyCode)
     {
-        if (Data.TryGetValue(currency, out var info))
+        if (Data.TryGetValue(currencyCode, out var info))
             return info;
 
-        var code = currency.ToString();
+        var code = currencyCode.ToString();
         return new CurrencyInfo
         {
             EnglishName = code,

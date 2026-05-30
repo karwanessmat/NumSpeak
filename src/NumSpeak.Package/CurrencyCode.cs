@@ -3,9 +3,9 @@ namespace NumSpeaks;
 /// <summary>
 /// ISO 4217 currency codes for type-safe currency selection.
 /// Each currency can be referenced by its ISO code or by its descriptive name.
-/// Example: Currency.USD and Currency.UnitedStatesDollar are equivalent.
+/// Example: CurrencyCode.USD and CurrencyCode.UnitedStatesDollar are equivalent.
 /// </summary>
-public enum Currency
+public enum CurrencyCode
 {
     // A
     AED = 0,

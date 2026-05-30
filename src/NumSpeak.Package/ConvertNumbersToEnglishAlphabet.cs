@@ -9,7 +9,7 @@ public static class ConvertNumbersToEnglishAlphabet
     private static readonly string[] Tens = { "zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
     private static readonly string[] Thousands = { "", "thousand", "million", "billion", "trillion", "quadrillion", "quintillion" };
 
-    public static string ToEnglishWords(this object val, Currency? currency = null)
+    public static string ToEnglishWords(this object val, CurrencyCode? currencyCode = null)
     {
         var stringVal = val.ToString()?.Trim() ?? "";
 
@@ -23,9 +23,9 @@ public static class ConvertNumbersToEnglishAlphabet
             {
                 var integerWords = integerPart.ToEnglishWords();
 
-                if (currency.HasValue)
+                if (currencyCode.HasValue)
                 {
-                    var info = CurrencyInfo.Get(currency.Value);
+                    var info = CurrencyInfo.Get(currencyCode.Value);
                     return decimalPart == 0
                         ? $"{integerWords} {info.EnglishName}"
                         : $"{integerWords} {info.EnglishName} and {decimalPart.ToEnglishWords()} {info.EnglishSubUnit}";
@@ -70,9 +70,9 @@ public static class ConvertNumbersToEnglishAlphabet
 
         var result = words.Trim();
 
-        if (currency.HasValue)
+        if (currencyCode.HasValue)
         {
-            var info = CurrencyInfo.Get(currency.Value);
+            var info = CurrencyInfo.Get(currencyCode.Value);
             result = $"{result} {info.EnglishName}";
         }
 
@@ -85,7 +85,11 @@ public static class ConvertNumbersToEnglishAlphabet
 
         if (number % 100 < 20)
         {
-            words = number % 100 < 10 ? Units[number % 10] : Teens[number % 100 - 10];
+            // When number % 100 == 0 (e.g. 100, 600, 1500's "500") there are no
+            // tens/units to spell — leave words empty so "six hundred" doesn't
+            // become "six hundred zero". Only the < 10 / teens branches emit words.
+            var rem = number % 100;
+            words = rem == 0 ? "" : (rem < 10 ? Units[rem] : Teens[rem - 10]);
             number /= 100;
         }
         else
