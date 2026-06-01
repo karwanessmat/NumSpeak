@@ -13,24 +13,24 @@ namespace NumSpeak.Api.Controllers
         /// <param name="number">you can use any type of number</param>
         /// <returns></returns>
         [HttpGet("kurdish/{number:decimal}")]
-        public IActionResult WordsToKurdish(decimal number, CurrencyCode? currencyCode = null)
+        public IActionResult WordsToKurdish(decimal number, CurrencyCode? currencyCode = null, int? decimals = null)
         {
-            var textNumber = number.ToKurdishWords(currencyCode);
+            var textNumber = number.ToKurdishWords(currencyCode, decimals);
             return Ok(textNumber);
         }
 
 
         [HttpGet("arabic/{number:decimal}")]
-        public IActionResult WordsToArabic(decimal number, CurrencyCode? currencyCode = null)
+        public IActionResult WordsToArabic(decimal number, CurrencyCode? currencyCode = null, int? decimals = null)
         {
-            var textNumber = number.ToArabicWords(currencyCode);
+            var textNumber = number.ToArabicWords(currencyCode, decimals);
             return Ok(textNumber);
         }
 
         [HttpGet("english/{number:decimal}")]
-        public IActionResult WordsToEnglish(decimal number, CurrencyCode? currencyCode = null)
+        public IActionResult WordsToEnglish(decimal number, CurrencyCode? currencyCode = null, int? decimals = null)
         {
-            var textNumber = number.ToEnglishWords(currencyCode);
+            var textNumber = number.ToEnglishWords(currencyCode, decimals);
             return Ok(textNumber);
         }
     }

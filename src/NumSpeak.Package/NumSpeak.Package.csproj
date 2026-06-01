@@ -13,14 +13,13 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/karwanessmat/NumSpeak</RepositoryUrl>
     <PackageTags>c#,.net</PackageTags>
-    <PackageReleaseNotes>Initial release of NumSpeaks.
-Convert Kurdish, Arabic, and English numbers to words effortlessly.</PackageReleaseNotes>
+    <PackageReleaseNotes>3.3.0 — Currency sub-units (cents/fils) are now derived from the amount and each currency's SubUnitFactor, instead of the raw digits after the decimal point. Fixes sub-unit output that depended on decimal scale (e.g. 3.8 now reads "eighty cents", not "eight"; 3.8400000000 no longer becomes "... billion cents"), supports 1000-based dinar fils and no-sub-unit currencies (JPY/KRW), and avoids a culture-dependent parse. Whole numbers and clean 2-decimal amounts are unchanged. Adds an optional 'decimals' parameter to ToEnglishWords/ToArabicWords/ToKurdishWords that overrides the sub-unit precision per call (e.g. decimals: 0 to suppress fils); it defaults to the currency's natural sub-unit, so existing calls are unaffected. Bare numbers (no currency) with a fraction are now read digit-by-digit after the decimal word (e.g. 3.074 -> "three point zero seven four", distinct from 3.74), preserving place value; previously the fractional digits were read as one number, which dropped leading zeros and made 3.074 and 3.74 read the same. English currency words are now pluralized by count ("three US dollars", "one US dollar and one cent"; yen/won invariant, pence/penny); Kurdish keeps the singular noun after a numeral (grammatically correct) and Arabic is unchanged (proper dual/plural grammar is a separate task). No-sub-unit currencies (yen plus other 0-decimal currencies — ISK, CLP, UGX, the CFA francs, etc., now flagged with SubUnitFactor = 1) round to the nearest whole unit. Arabic currency words now follow standard number-noun agreement (1 singular, 2 dual, 3-10 plural, 11+ singular) for currencies with dual/plural forms supplied (USD, IQD, SAR, AED, KWD, QAR, GBP, EGP, JOD, BHD, LYD, YER); the numeral follows the noun for one ("دولار واحد") and eleven uses the masculine "أحد عشر". Gender agreement (مخالفة) is applied for feminine nouns too (ثلاث ليرات vs ثلاثة دولارات, واحدة, إحدى عشرة) via per-currency gender flags, with a full gender-aware cardinal speller (hundreds مئتان/خمسمائة, thousands آلاف); SYP and the Saudi halala sub-unit are populated as feminine. Other currencies fall back to the singular.</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/karwanessmat/NumSpeak</PackageProjectUrl>
     <Copyright>Owner</Copyright>
     <PackageLicenseFile>license.txt</PackageLicenseFile>
-    <AssemblyVersion>3.2.1</AssemblyVersion>
-    <FileVersion>3.2.1</FileVersion>
-    <Version>3.2.1</Version>
+    <AssemblyVersion>3.3.0</AssemblyVersion>
+    <FileVersion>3.3.0</FileVersion>
+    <Version>3.3.0</Version>
 
     <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>

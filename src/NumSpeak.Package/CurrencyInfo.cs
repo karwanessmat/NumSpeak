@@ -11,6 +11,16 @@ public class CurrencyInfo
     public string KurdishSubUnit { get; init; } = "";
     public string ArabicName { get; init; } = "";
     public string ArabicSubUnit { get; init; } = "";
+    // Optional Arabic dual/plural forms for number-noun agreement. When null, the
+    // converter falls back to the singular (safe; matches pre-3.3 behavior).
+    public string? ArabicNameDual { get; init; }
+    public string? ArabicNamePlural { get; init; }
+    public string? ArabicSubUnitDual { get; init; }
+    public string? ArabicSubUnitPlural { get; init; }
+    // Grammatical gender of the Arabic noun, for number agreement (مخالفة):
+    // 3-10 take the OPPOSITE-gender numeral (ثلاثة دولار[m] vs ثلاث ليرة[f]).
+    public bool ArabicFeminine { get; init; }
+    public bool ArabicSubUnitFeminine { get; init; }
     public int SubUnitFactor { get; init; } = 100;
 
     private static readonly Dictionary<CurrencyCode, CurrencyInfo> Data = new()
@@ -19,6 +29,8 @@ public class CurrencyInfo
         [CurrencyCode.AED] = new CurrencyInfo
         {
             EnglishName = "UAE dirham", EnglishSubUnit = "fils",
+            ArabicNameDual = "درهمان إماراتيان", ArabicNamePlural = "دراهم إماراتية",
+            ArabicSubUnitDual = "فلسان", ArabicSubUnitPlural = "فلوس",
             KurdishName = "دیرهەمی ئیماراتی", KurdishSubUnit = "فلس",
             ArabicName = "درهم إماراتي", ArabicSubUnit = "فلس"
         },
@@ -105,13 +117,15 @@ public class CurrencyInfo
         [CurrencyCode.BHD] = new CurrencyInfo
         {
             EnglishName = "Bahraini dinar", EnglishSubUnit = "fils",
+            ArabicNameDual = "ديناران بحرينيان", ArabicNamePlural = "دنانير بحرينية",
+            ArabicSubUnitDual = "فلسان", ArabicSubUnitPlural = "فلوس",
             KurdishName = "دیناری بەحرەینی", KurdishSubUnit = "فلس",
             ArabicName = "دينار بحريني", ArabicSubUnit = "فلس",
             SubUnitFactor = 1000
         },
         [CurrencyCode.BIF] = new CurrencyInfo
         {
-            EnglishName = "Burundian franc", EnglishSubUnit = "centimes",
+            EnglishName = "Burundian franc", EnglishSubUnit = "centimes", SubUnitFactor = 1,
             KurdishName = "فرانکی بوروندی", KurdishSubUnit = "سەنتیم",
             ArabicName = "فرنك بوروندي", ArabicSubUnit = "سنتيم"
         },
@@ -191,7 +205,7 @@ public class CurrencyInfo
         },
         [CurrencyCode.CLP] = new CurrencyInfo
         {
-            EnglishName = "Chilean peso", EnglishSubUnit = "centavos",
+            EnglishName = "Chilean peso", EnglishSubUnit = "centavos", SubUnitFactor = 1,
             KurdishName = "پێسۆی چیلی", KurdishSubUnit = "سەنتاڤۆ",
             ArabicName = "بيزو تشيلي", ArabicSubUnit = "سنتافو"
         },
@@ -235,7 +249,7 @@ public class CurrencyInfo
         // ── D ──
         [CurrencyCode.DJF] = new CurrencyInfo
         {
-            EnglishName = "Djiboutian franc", EnglishSubUnit = "centimes",
+            EnglishName = "Djiboutian franc", EnglishSubUnit = "centimes", SubUnitFactor = 1,
             KurdishName = "فرانکی جیبوتی", KurdishSubUnit = "سەنتیم",
             ArabicName = "فرنك جيبوتي", ArabicSubUnit = "سنتيم"
         },
@@ -262,6 +276,8 @@ public class CurrencyInfo
         [CurrencyCode.EGP] = new CurrencyInfo
         {
             EnglishName = "Egyptian pound", EnglishSubUnit = "piastres",
+            ArabicNameDual = "جنيهان مصريان", ArabicNamePlural = "جنيهات مصرية",
+            ArabicSubUnitDual = "قرشان", ArabicSubUnitPlural = "قروش",
             KurdishName = "پاوەندی میسری", KurdishSubUnit = "قرش",
             ArabicName = "جنيه مصري", ArabicSubUnit = "قرش"
         },
@@ -302,6 +318,8 @@ public class CurrencyInfo
         [CurrencyCode.GBP] = new CurrencyInfo
         {
             EnglishName = "British pound", EnglishSubUnit = "pence",
+            ArabicNameDual = "جنيهان إسترلينيان", ArabicNamePlural = "جنيهات إسترلينية",
+            ArabicSubUnitDual = "بنسان", ArabicSubUnitPlural = "بنسات",
             KurdishName = "پاوەندی بەریتانی", KurdishSubUnit = "پێنس",
             ArabicName = "جنيه إسترليني", ArabicSubUnit = "بنس"
         },
@@ -331,7 +349,7 @@ public class CurrencyInfo
         },
         [CurrencyCode.GNF] = new CurrencyInfo
         {
-            EnglishName = "Guinean franc", EnglishSubUnit = "centimes",
+            EnglishName = "Guinean franc", EnglishSubUnit = "centimes", SubUnitFactor = 1,
             KurdishName = "فرانکی گینێیی", KurdishSubUnit = "سەنتیم",
             ArabicName = "فرنك غيني", ArabicSubUnit = "سنتيم"
         },
@@ -396,6 +414,8 @@ public class CurrencyInfo
         [CurrencyCode.IQD] = new CurrencyInfo
         {
             EnglishName = "Iraqi dinar", EnglishSubUnit = "fils",
+            ArabicNameDual = "ديناران عراقيان", ArabicNamePlural = "دنانير عراقية",
+            ArabicSubUnitDual = "فلسان", ArabicSubUnitPlural = "فلوس",
             KurdishName = "دیناری عێراقی", KurdishSubUnit = "فلس",
             ArabicName = "دينار عراقي", ArabicSubUnit = "فلس",
             SubUnitFactor = 1000
@@ -408,7 +428,7 @@ public class CurrencyInfo
         },
         [CurrencyCode.ISK] = new CurrencyInfo
         {
-            EnglishName = "Icelandic krona", EnglishSubUnit = "aurar",
+            EnglishName = "Icelandic krona", EnglishSubUnit = "aurar", SubUnitFactor = 1,
             KurdishName = "کرۆنای ئایسلەندی", KurdishSubUnit = "ئۆرار",
             ArabicName = "كرونة آيسلندية", ArabicSubUnit = "أورار"
         },
@@ -423,6 +443,8 @@ public class CurrencyInfo
         [CurrencyCode.JOD] = new CurrencyInfo
         {
             EnglishName = "Jordanian dinar", EnglishSubUnit = "piastres",
+            ArabicNameDual = "ديناران أردنيان", ArabicNamePlural = "دنانير أردنية",
+            ArabicSubUnitDual = "قرشان", ArabicSubUnitPlural = "قروش",
             KurdishName = "دیناری ئوردنی", KurdishSubUnit = "قرش",
             ArabicName = "دينار أردني", ArabicSubUnit = "قرش"
         },
@@ -455,7 +477,7 @@ public class CurrencyInfo
         },
         [CurrencyCode.KMF] = new CurrencyInfo
         {
-            EnglishName = "Comorian franc", EnglishSubUnit = "centimes",
+            EnglishName = "Comorian franc", EnglishSubUnit = "centimes", SubUnitFactor = 1,
             KurdishName = "فرانکی کۆمۆری", KurdishSubUnit = "سەنتیم",
             ArabicName = "فرنك قمري", ArabicSubUnit = "سنتيم"
         },
@@ -475,6 +497,8 @@ public class CurrencyInfo
         [CurrencyCode.KWD] = new CurrencyInfo
         {
             EnglishName = "Kuwaiti dinar", EnglishSubUnit = "fils",
+            ArabicNameDual = "ديناران كويتيان", ArabicNamePlural = "دنانير كويتية",
+            ArabicSubUnitDual = "فلسان", ArabicSubUnitPlural = "فلوس",
             KurdishName = "دیناری کوەیتی", KurdishSubUnit = "فلس",
             ArabicName = "دينار كويتي", ArabicSubUnit = "فلس",
             SubUnitFactor = 1000
@@ -526,6 +550,8 @@ public class CurrencyInfo
         [CurrencyCode.LYD] = new CurrencyInfo
         {
             EnglishName = "Libyan dinar", EnglishSubUnit = "dirhams",
+            ArabicNameDual = "ديناران ليبيان", ArabicNamePlural = "دنانير ليبية",
+            ArabicSubUnitDual = "درهمان", ArabicSubUnitPlural = "دراهم",
             KurdishName = "دیناری لیبی", KurdishSubUnit = "دیرهەم",
             ArabicName = "دينار ليبي", ArabicSubUnit = "درهم",
             SubUnitFactor = 1000
@@ -703,7 +729,7 @@ public class CurrencyInfo
         },
         [CurrencyCode.PYG] = new CurrencyInfo
         {
-            EnglishName = "Paraguayan guarani", EnglishSubUnit = "centimos",
+            EnglishName = "Paraguayan guarani", EnglishSubUnit = "centimos", SubUnitFactor = 1,
             KurdishName = "گوارانیی پاراگوایی", KurdishSubUnit = "سەنتیمۆ",
             ArabicName = "غواراني باراغواي", ArabicSubUnit = "سنتيمو"
         },
@@ -712,6 +738,8 @@ public class CurrencyInfo
         [CurrencyCode.QAR] = new CurrencyInfo
         {
             EnglishName = "Qatari riyal", EnglishSubUnit = "dirhams",
+            ArabicNameDual = "ريالان قطريان", ArabicNamePlural = "ريالات قطرية",
+            ArabicSubUnitDual = "درهمان", ArabicSubUnitPlural = "دراهم",
             KurdishName = "ریاڵی قەتەری", KurdishSubUnit = "دیرهەم",
             ArabicName = "ريال قطري", ArabicSubUnit = "درهم"
         },
@@ -737,7 +765,7 @@ public class CurrencyInfo
         },
         [CurrencyCode.RWF] = new CurrencyInfo
         {
-            EnglishName = "Rwandan franc", EnglishSubUnit = "centimes",
+            EnglishName = "Rwandan franc", EnglishSubUnit = "centimes", SubUnitFactor = 1,
             KurdishName = "فرانکی ڕواندایی", KurdishSubUnit = "سەنتیم",
             ArabicName = "فرنك رواندي", ArabicSubUnit = "سنتيم"
         },
@@ -746,6 +774,8 @@ public class CurrencyInfo
         [CurrencyCode.SAR] = new CurrencyInfo
         {
             EnglishName = "Saudi riyal", EnglishSubUnit = "halalas",
+            ArabicNameDual = "ريالان سعوديان", ArabicNamePlural = "ريالات سعودية",
+            ArabicSubUnitDual = "هللتان", ArabicSubUnitPlural = "هللات", ArabicSubUnitFeminine = true,
             KurdishName = "ریاڵی سعوودی", KurdishSubUnit = "هەلەلە",
             ArabicName = "ريال سعودي", ArabicSubUnit = "هللة"
         },
@@ -818,6 +848,8 @@ public class CurrencyInfo
         [CurrencyCode.SYP] = new CurrencyInfo
         {
             EnglishName = "Syrian pound", EnglishSubUnit = "piastres",
+            ArabicNameDual = "ليرتان سوريتان", ArabicNamePlural = "ليرات سورية", ArabicFeminine = true,
+            ArabicSubUnitDual = "قرشان", ArabicSubUnitPlural = "قروش",
             KurdishName = "لیرەی سووری", KurdishSubUnit = "قرش",
             ArabicName = "ليرة سورية", ArabicSubUnit = "قرش"
         },
@@ -894,13 +926,15 @@ public class CurrencyInfo
         },
         [CurrencyCode.UGX] = new CurrencyInfo
         {
-            EnglishName = "Ugandan shilling", EnglishSubUnit = "cents",
+            EnglishName = "Ugandan shilling", EnglishSubUnit = "cents", SubUnitFactor = 1,
             KurdishName = "شیلنگی ئوگاندایی", KurdishSubUnit = "سەنت",
             ArabicName = "شلن أوغندي", ArabicSubUnit = "سنت"
         },
         [CurrencyCode.USD] = new CurrencyInfo
         {
             EnglishName = "US dollar", EnglishSubUnit = "cents",
+            ArabicNameDual = "دولاران أمريكيان", ArabicNamePlural = "دولارات أمريكية",
+            ArabicSubUnitDual = "سنتان", ArabicSubUnitPlural = "سنتات",
             KurdishName = "دۆلاری ئەمریکی", KurdishSubUnit = "سەنت",
             ArabicName = "دولار أمريكي", ArabicSubUnit = "سنت"
         },
@@ -950,7 +984,7 @@ public class CurrencyInfo
         // ── X (Regional) ──
         [CurrencyCode.XAF] = new CurrencyInfo
         {
-            EnglishName = "Central African CFA franc", EnglishSubUnit = "centimes",
+            EnglishName = "Central African CFA franc", EnglishSubUnit = "centimes", SubUnitFactor = 1,
             KurdishName = "فرانکی سی ئێف ئەی ناوەندی ئەفریقا", KurdishSubUnit = "سەنتیم",
             ArabicName = "فرنك وسط أفريقي", ArabicSubUnit = "سنتيم"
         },
@@ -962,13 +996,13 @@ public class CurrencyInfo
         },
         [CurrencyCode.XOF] = new CurrencyInfo
         {
-            EnglishName = "West African CFA franc", EnglishSubUnit = "centimes",
+            EnglishName = "West African CFA franc", EnglishSubUnit = "centimes", SubUnitFactor = 1,
             KurdishName = "فرانکی سی ئێف ئەی ڕۆژئاوای ئەفریقا", KurdishSubUnit = "سەنتیم",
             ArabicName = "فرنك غرب أفريقي", ArabicSubUnit = "سنتيم"
         },
         [CurrencyCode.XPF] = new CurrencyInfo
         {
-            EnglishName = "CFP franc", EnglishSubUnit = "centimes",
+            EnglishName = "CFP franc", EnglishSubUnit = "centimes", SubUnitFactor = 1,
             KurdishName = "فرانکی سی ئێف پی", KurdishSubUnit = "سەنتیم",
             ArabicName = "فرنك سي إف بي", ArabicSubUnit = "سنتيم"
         },
@@ -977,6 +1011,8 @@ public class CurrencyInfo
         [CurrencyCode.YER] = new CurrencyInfo
         {
             EnglishName = "Yemeni rial", EnglishSubUnit = "fils",
+            ArabicNameDual = "ريالان يمنيان", ArabicNamePlural = "ريالات يمنية",
+            ArabicSubUnitDual = "فلسان", ArabicSubUnitPlural = "فلوس",
             KurdishName = "ریاڵی یەمەنی", KurdishSubUnit = "فلس",
             ArabicName = "ريال يمني", ArabicSubUnit = "فلس"
         },

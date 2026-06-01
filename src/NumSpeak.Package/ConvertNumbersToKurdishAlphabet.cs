@@ -5,31 +5,46 @@ namespace NumSpeaks
 
     public static class ConvertNumbersToKurdishAlphabet
     {
-        public static string ToKurdishWords(this object val, CurrencyCode? currencyCode = null)
+        private static readonly string[] KurdishDigits = { "سفر", "یەک", "دوو", "سێ", "چوار", "پێنج", "شەش", "حەوت", "هەشت", "نۆ" };
+
+        public static string ToKurdishWords(this object val, CurrencyCode? currencyCode = null, int? decimals = null)
         {
             var stringVal = val.ToString()?.Trim() ?? "";
 
-            // Handle decimal numbers
+            // Currency amounts: see the English converter for the rationale. Uses the
+            // currency's SubUnitFactor so the sub-unit is correct regardless of decimal scale.
+            if (currencyCode.HasValue && MoneyParts.TryGetDecimal(val, out var money))
+            {
+                var info = CurrencyInfo.Get(currencyCode.Value);
+                // decimals == null → currency's natural sub-unit; otherwise honour the caller's
+                // precision (e.g. IQD with decimals: 0 → no fils). Pass 0 or the currency's real power.
+                var factor = decimals is int dp ? MoneyParts.Pow10(dp) : info.SubUnitFactor;
+                MoneyParts.Split(money, factor, out var whole, out var minor);
+                var sign = money < 0 ? "- " : "";
+                return minor == 0
+                    ? $"{sign}{whole.ToKurdishWords()} {info.KurdishName}"
+                    : $"{sign}{whole.ToKurdishWords()} {info.KurdishName} و {minor.ToKurdishWords()} {info.KurdishSubUnit}";
+            }
+
+            // Handle decimal numbers (no currency — currency is handled above)
             if (stringVal.Contains('.'))
             {
                 var parts = stringVal.Split('.');
                 if (parts.Length == 2
                     && long.TryParse(parts[0], out var integerPart)
-                    && long.TryParse(parts[1], out var decimalPart))
+                    && parts[1].Length > 0
+                    && parts[1].All(char.IsDigit))
                 {
                     var integerWords = integerPart.ToKurdishWords();
 
-                    if (currencyCode.HasValue)
-                    {
-                        var info = CurrencyInfo.Get(currencyCode.Value);
-                        return decimalPart == 0
-                            ? $"{integerWords} {info.KurdishName}"
-                            : $"{integerWords} {info.KurdishName} و {decimalPart.ToKurdishWords()} {info.KurdishSubUnit}";
-                    }
+                    // Read the fraction digit-by-digit after "پۆینت" so place value is kept
+                    // (3.074 distinct from 3.74). Trailing zeros trimmed; pure-zero → integer.
+                    var fraction = parts[1].TrimEnd('0');
+                    if (fraction.Length == 0)
+                        return integerWords;
 
-                    return decimalPart == 0
-                        ? integerWords
-                        : $"{integerWords} و پۆینت {decimalPart.ToKurdishWords()}";
+                    var digits = string.Join(" ", fraction.Select(d => KurdishDigits[d - '0']));
+                    return $"{integerWords} پۆینت {digits}";
                 }
 
                 return "تەنها پشتگیری ژمارە دەکات.";
